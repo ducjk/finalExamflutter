@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:test_project/model/product_model.dart';
 import 'package:test_project/utils.dart';
 
-class Scene extends StatelessWidget {
+class MovieAbout extends StatelessWidget {
+  final ProductModel product;
+  const MovieAbout({super.key, required this.product});
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 375;
@@ -60,7 +64,7 @@ class Scene extends StatelessWidget {
                         maxWidth: 339 * fem,
                       ),
                       child: Text(
-                        'When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, Batman is forced to investigate the city\'s hidden corruption and question his family\'s involvement.',
+                        product.description.toString(),
                         style: SafeGoogleFont(
                           'PT Root UI',
                           fontSize: 14 * ffem,
@@ -123,7 +127,7 @@ class Scene extends StatelessWidget {
                                         ),
                                         child: Center(
                                           child: Text(
-                                            '16+',
+                                            product.certificate ?? "",
                                             style: SafeGoogleFont(
                                               'PT Root UI',
                                               fontSize: 14 * ffem,
@@ -163,7 +167,7 @@ class Scene extends StatelessWidget {
                                       ),
                                       Text(
                                         // nE6 (1:791)
-                                        '02:56',
+                                        product.runtime ?? "",
                                         style: SafeGoogleFont(
                                           'PT Root UI',
                                           fontSize: 14 * ffem,
@@ -537,65 +541,6 @@ class Scene extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Container(
-                          // statusbarNYJ (1:807)
-                          margin: EdgeInsets.fromLTRB(
-                              34.27 * fem, 0 * fem, 14.34 * fem, 15.33 * fem),
-                          width: double.infinity,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                // timeszr (I1:807;1:70)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 232.23 * fem, 0.41 * fem),
-                                width: 28.5 * fem,
-                                height: 11.09 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/time-FMc.png',
-                                  width: 28.5 * fem,
-                                  height: 11.09 * fem,
-                                ),
-                              ),
-                              Container(
-                                // cellularconnectionaeN (I1:807;1:79)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0.17 * fem, 5 * fem, 0 * fem),
-                                width: 17 * fem,
-                                height: 10.67 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/cellular-connection-2Tt.png',
-                                  width: 17 * fem,
-                                  height: 10.67 * fem,
-                                ),
-                              ),
-                              Container(
-                                // wifi3H4 (I1:807;1:75)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 5 * fem, 0.17 * fem),
-                                width: 15.33 * fem,
-                                height: 11 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/wifi-5ia.png',
-                                  width: 15.33 * fem,
-                                  height: 11 * fem,
-                                ),
-                              ),
-                              Container(
-                                // batteryj9t (I1:807;1:71)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0.17 * fem, 0 * fem, 0 * fem),
-                                width: 24.33 * fem,
-                                height: 11.33 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/battery.png',
-                                  width: 24.33 * fem,
-                                  height: 11.33 * fem,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
                         Container(
                           // autogroupdszjZei (6rYmmbwt3P6sUGVcLWDszJ)
                           width: double.infinity,

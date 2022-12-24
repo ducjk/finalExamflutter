@@ -19,7 +19,9 @@ class ProductProvider extends ChangeNotifier {
           name: e['name'],
           description: e['description'],
           category: e['category'],
-          avatar: e['avatar']);
+          avatar: e['avatar'],
+          certificate: e['certificate'],
+          runtime: e['runtime']);
     }).toList();
 
     notifyListeners();
