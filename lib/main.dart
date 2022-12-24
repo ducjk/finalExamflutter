@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:test_project/model/product_provider.dart';
 import 'package:test_project/utils.dart';
 // import 'package:test_project/interfaces/splash-screen.dart';
-import 'package:test_project/interfaces/home-non-auth.dart';
+import 'package:test_project/gui/interfaces/home-non-auth.dart';
 // import 'package:test_project/interfaces/home-authorized.dart';
 // import 'package:test_project/interfaces/modal-auth-1.dart';
 // import 'package:test_project/interfaces/modal-select-city.dart';
@@ -55,16 +57,19 @@ void main() => runApp(test_project());
 class test_project extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter',
-      debugShowCheckedModeBanner: false,
-      scrollBehavior: MyCustomScrollBehavior(),
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        body: SingleChildScrollView(
-          child: Scene(),
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => ProductProvider())],
+      child: MaterialApp(
+        title: 'Flutter',
+        debugShowCheckedModeBanner: false,
+        scrollBehavior: MyCustomScrollBehavior(),
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: Scaffold(
+          body: SingleChildScrollView(
+            child: Scene(),
+          ),
         ),
       ),
     );
