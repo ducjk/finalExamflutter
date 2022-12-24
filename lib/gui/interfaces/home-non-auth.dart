@@ -141,7 +141,7 @@ class _SceneState extends State<Scene> {
                                                     width: 17 * fem,
                                                     height: 20 * fem,
                                                     child: Image.asset(
-                                                      'assets/interfaces/images/location-gsk.png',
+                                                      'assets/icon/locotion.png',
                                                       width: 17 * fem,
                                                       height: 20 * fem,
                                                     ),
@@ -204,7 +204,7 @@ class _SceneState extends State<Scene> {
                                                   width: 20 * fem,
                                                   height: 20 * fem,
                                                   child: Image.asset(
-                                                    'assets/interfaces/images/language-NS6.png',
+                                                    'assets/icon/language.png',
                                                     width: 20 * fem,
                                                     height: 20 * fem,
                                                   ),
@@ -327,7 +327,7 @@ class _SceneState extends State<Scene> {
                           width: 24 * fem,
                           height: 24 * fem,
                           child: Image.asset(
-                            'assets/interfaces/images/glyph-3c6.png',
+                            'assets/icon/search.png',
                             width: 24 * fem,
                             height: 24 * fem,
                           ),
