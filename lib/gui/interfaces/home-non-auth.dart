@@ -141,7 +141,7 @@ class _SceneState extends State<Scene> {
                                                     width: 17 * fem,
                                                     height: 20 * fem,
                                                     child: Image.asset(
-                                                      'assets/icon/locotion.png',
+                                                      'assets/icon/location.png',
                                                       width: 17 * fem,
                                                       height: 20 * fem,
                                                     ),

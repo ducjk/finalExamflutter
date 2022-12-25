@@ -304,7 +304,7 @@ class Scene extends StatelessWidget {
                                       0 * fem, 0 * fem, 64 * fem, 0 * fem),
                                   child: Text(
                                     'Cast',
-                                    style: SafeGoogleFont(
+                                    style: (
                                       'PT Root UI',
                                       fontSize: 14 * ffem,
                                       fontWeight: FontWeight.w400,
