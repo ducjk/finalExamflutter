@@ -68,7 +68,7 @@ class test_project extends StatelessWidget {
         ),
         home: Scaffold(
           body: SingleChildScrollView(
-            child: Scene(),
+            child: HomePage(),
           ),
         ),
       ),

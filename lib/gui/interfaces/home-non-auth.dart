@@ -8,12 +8,12 @@ import 'package:test_project/model/product_model.dart';
 import 'package:test_project/model/product_provider.dart';
 import 'package:test_project/utils.dart';
 
-class Scene extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
-  State<Scene> createState() => _SceneState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _SceneState extends State<Scene> {
+class _HomePageState extends State<HomePage> {
   List<ProductModel> listProduct = [];
 
   @override
@@ -142,7 +142,7 @@ class _SceneState extends State<Scene> {
                                                     width: 17 * fem,
                                                     height: 20 * fem,
                                                     child: Image.asset(
-                                                      'assets/icon/locotion.png',
+                                                      'assets/icon/location.png',
                                                       width: 17 * fem,
                                                       height: 20 * fem,
                                                     ),

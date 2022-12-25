@@ -21,7 +21,9 @@ class ProductProvider extends ChangeNotifier {
           category: e['category'],
           avatar: e['avatar'],
           certificate: e['certificate'],
-          runtime: e['runtime']);
+          runtime: e['runtime'],
+          release: e['release'],
+          cast: e['cast']);
     }).toList();
 
     notifyListeners();

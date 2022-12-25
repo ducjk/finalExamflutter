@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:test_project/gui/interfaces/movie-sessions.dart';
 import 'package:test_project/model/product_model.dart';
 import 'package:test_project/utils.dart';
 
@@ -33,8 +34,8 @@ class MovieAbout extends StatelessWidget {
                 child: SizedBox(
                   width: 375 * fem,
                   height: 210 * fem,
-                  child: Image.asset(
-                    'assets/interfaces/images/video.png',
+                  child: Image.network(
+                    product.avatar.toString(),
                     width: 375 * fem,
                     height: 210 * fem,
                   ),
@@ -67,6 +68,7 @@ class MovieAbout extends StatelessWidget {
                         product.description.toString(),
                         style: SafeGoogleFont(
                           'PT Root UI',
+                          decoration: TextDecoration.none,
                           fontSize: 14 * ffem,
                           fontWeight: FontWeight.w400,
                           height: 1.4285714286 * ffem / fem,
@@ -108,6 +110,7 @@ class MovieAbout extends StatelessWidget {
                                           'Certificate',
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 14 * ffem,
                                             fontWeight: FontWeight.w400,
                                             height: 1.2575 * ffem / fem,
@@ -130,6 +133,7 @@ class MovieAbout extends StatelessWidget {
                                             product.certificate ?? "",
                                             style: SafeGoogleFont(
                                               'PT Root UI',
+                                              decoration: TextDecoration.none,
                                               fontSize: 14 * ffem,
                                               fontWeight: FontWeight.w500,
                                               height: 1.2575 * ffem / fem,
@@ -158,6 +162,7 @@ class MovieAbout extends StatelessWidget {
                                           'Runtime',
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 14 * ffem,
                                             fontWeight: FontWeight.w400,
                                             height: 1.2575 * ffem / fem,
@@ -170,6 +175,7 @@ class MovieAbout extends StatelessWidget {
                                         product.runtime ?? "",
                                         style: SafeGoogleFont(
                                           'PT Root UI',
+                                          decoration: TextDecoration.none,
                                           fontSize: 14 * ffem,
                                           fontWeight: FontWeight.w500,
                                           height: 1.2575 * ffem / fem,
@@ -196,6 +202,7 @@ class MovieAbout extends StatelessWidget {
                                           'Release',
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 14 * ffem,
                                             fontWeight: FontWeight.w400,
                                             height: 1.2575 * ffem / fem,
@@ -205,9 +212,10 @@ class MovieAbout extends StatelessWidget {
                                       ),
                                       Text(
                                         // rNN (1:794)
-                                        '2022',
+                                        product.release ?? "",
                                         style: SafeGoogleFont(
                                           'PT Root UI',
+                                          decoration: TextDecoration.none,
                                           fontSize: 14 * ffem,
                                           fontWeight: FontWeight.w500,
                                           height: 1.2575 * ffem / fem,
@@ -234,6 +242,7 @@ class MovieAbout extends StatelessWidget {
                                           'Genre',
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 14 * ffem,
                                             fontWeight: FontWeight.w400,
                                             height: 1.2575 * ffem / fem,
@@ -246,6 +255,7 @@ class MovieAbout extends StatelessWidget {
                                         'Action, Crime, Drama',
                                         style: SafeGoogleFont(
                                           'PT Root UI',
+                                          decoration: TextDecoration.none,
                                           fontSize: 14 * ffem,
                                           fontWeight: FontWeight.w500,
                                           height: 1.2575 * ffem / fem,
@@ -272,6 +282,7 @@ class MovieAbout extends StatelessWidget {
                                           'Director',
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 14 * ffem,
                                             fontWeight: FontWeight.w400,
                                             height: 1.2575 * ffem / fem,
@@ -284,6 +295,7 @@ class MovieAbout extends StatelessWidget {
                                         'Matt Reeves',
                                         style: SafeGoogleFont(
                                           'PT Root UI',
+                                          decoration: TextDecoration.none,
                                           fontSize: 14 * ffem,
                                           fontWeight: FontWeight.w500,
                                           height: 1.2575 * ffem / fem,
@@ -310,6 +322,7 @@ class MovieAbout extends StatelessWidget {
                                     'Cast',
                                     style: SafeGoogleFont(
                                       'PT Root UI',
+                                      decoration: TextDecoration.none,
                                       fontSize: 14 * ffem,
                                       fontWeight: FontWeight.w400,
                                       height: 1.2575 * ffem / fem,
@@ -323,9 +336,10 @@ class MovieAbout extends StatelessWidget {
                                     maxWidth: 222 * fem,
                                   ),
                                   child: Text(
-                                    'Robert Pattinson, Zoë Kravitz, Jeffrey Wright, Colin Farrell, Paul Dano, John Turturro, 	Andy Serkis, Peter Sarsgaard',
+                                    product.cast ?? "",
                                     style: SafeGoogleFont(
                                       'PT Root UI',
+                                      decoration: TextDecoration.none,
                                       fontSize: 14 * ffem,
                                       fontWeight: FontWeight.w500,
                                       height: 1.2575 * ffem / fem,
@@ -380,6 +394,7 @@ class MovieAbout extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: SafeGoogleFont(
                                 'PT Root UI',
+                                decoration: TextDecoration.none,
                                 fontSize: 20 * ffem,
                                 fontWeight: FontWeight.w700,
                                 height: 1.2575 * ffem / fem,
@@ -393,6 +408,7 @@ class MovieAbout extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: SafeGoogleFont(
                               'PT Root UI',
+                              decoration: TextDecoration.none,
                               fontSize: 14 * ffem,
                               fontWeight: FontWeight.w400,
                               height: 1.2857142857 * ffem / fem,
@@ -429,6 +445,7 @@ class MovieAbout extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: SafeGoogleFont(
                                 'PT Root UI',
+                                decoration: TextDecoration.none,
                                 fontSize: 20 * ffem,
                                 fontWeight: FontWeight.w700,
                                 height: 1.2575 * ffem / fem,
@@ -442,6 +459,7 @@ class MovieAbout extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: SafeGoogleFont(
                               'PT Root UI',
+                              decoration: TextDecoration.none,
                               fontSize: 14 * ffem,
                               fontWeight: FontWeight.w400,
                               height: 1.2857142857 * ffem / fem,
@@ -475,7 +493,16 @@ class MovieAbout extends StatelessWidget {
                     ),
                     child: TextButton(
                       // buttonayp (1:805)
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: ((context) => (Sessions(
+                                  product: product,
+                                ))),
+                          ),
+                        );
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -507,6 +534,7 @@ class MovieAbout extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: SafeGoogleFont(
                               'PT Root UI',
+                              decoration: TextDecoration.none,
                               fontSize: 18 * ffem,
                               fontWeight: FontWeight.w700,
                               height: 1.2575 * ffem / fem,
@@ -548,62 +576,6 @@ class MovieAbout extends StatelessWidget {
                           child: Stack(
                             children: [
                               Positioned(
-                                // tabsV2a (1:743)
-                                left: 0 * fem,
-                                top: 64 * fem,
-                                child: Container(
-                                  width: 376 * fem,
-                                  height: 50 * fem,
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Container(
-                                        // tabbbQ (1:735)
-                                        padding: EdgeInsets.fromLTRB(72.5 * fem,
-                                            0 * fem, 72.5 * fem, 0 * fem),
-                                        width: 188 * fem,
-                                        height: 35.5 * fem,
-                                        child: Text(
-                                          'About',
-                                          textAlign: TextAlign.center,
-                                          style: SafeGoogleFont(
-                                            'PT Root UI',
-                                            fontSize: 16 * ffem,
-                                            fontWeight: FontWeight.w700,
-                                            height: 1.2575 * ffem / fem,
-                                            color: Color(0xffff7f36),
-                                          ),
-                                        ),
-                                      ),
-                                      TextButton(
-                                        // tab5Fg (1:736)
-                                        onPressed: () {},
-                                        style: TextButton.styleFrom(
-                                          padding: EdgeInsets.zero,
-                                        ),
-                                        child: Container(
-                                          width: 188 * fem,
-                                          height: double.infinity,
-                                          child: Center(
-                                            child: Text(
-                                              'Sessions',
-                                              textAlign: TextAlign.center,
-                                              style: SafeGoogleFont(
-                                                'PT Root UI',
-                                                fontSize: 16 * ffem,
-                                                fontWeight: FontWeight.w700,
-                                                height: 1.2575 * ffem / fem,
-                                                color: Color(0xff637393),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Positioned(
                                 // topbarGqx (1:714)
                                 left: 0 * fem,
                                 top: 0 * fem,
@@ -627,17 +599,18 @@ class MovieAbout extends StatelessWidget {
                                             margin: EdgeInsets.fromLTRB(0 * fem,
                                                 0 * fem, 83.5 * fem, 72 * fem),
                                             child: TextButton(
-                                              onPressed: () {},
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
                                               child: Container(
                                                 width: 40 * fem,
                                                 height: 40 * fem,
-                                                child: Image.asset(
-                                                  'assets/interfaces/images/glyph-ykv.png',
-                                                  width: 40 * fem,
-                                                  height: 40 * fem,
+                                                child: Icon(
+                                                  Icons.arrow_back_ios,
+                                                  size: 40 * fem,
                                                 ),
                                               ),
                                             ),
@@ -662,6 +635,8 @@ class MovieAbout extends StatelessWidget {
                                                     textAlign: TextAlign.center,
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
+                                                      decoration:
+                                                          TextDecoration.none,
                                                       fontSize: 18 * ffem,
                                                       fontWeight:
                                                           FontWeight.w700,
@@ -676,6 +651,8 @@ class MovieAbout extends StatelessWidget {
                                                   textAlign: TextAlign.center,
                                                   style: SafeGoogleFont(
                                                     'PT Root UI',
+                                                    decoration:
+                                                        TextDecoration.none,
                                                     fontSize: 14 * ffem,
                                                     fontWeight: FontWeight.w400,
                                                     height: 1 * ffem / fem,
@@ -685,21 +662,82 @@ class MovieAbout extends StatelessWidget {
                                               ],
                                             ),
                                           ),
-                                          Container(
-                                            // glyphizn (I1:714;4:225)
-                                            margin: EdgeInsets.fromLTRB(0 * fem,
-                                                88 * fem, 0 * fem, 0 * fem),
-                                            width: 24 * fem,
-                                            height: 24 * fem,
-                                            child: Image.asset(
-                                              'assets/interfaces/images/glyph.png',
-                                              width: 24 * fem,
-                                              height: 24 * fem,
-                                            ),
-                                          ),
                                         ],
                                       ),
                                     ),
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                // tabsV2a (1:743)
+                                left: 0 * fem,
+                                top: 64 * fem,
+                                child: Container(
+                                  width: 376 * fem,
+                                  height: 50 * fem,
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Container(
+                                        // tabbbQ (1:735)
+                                        padding: EdgeInsets.fromLTRB(72.5 * fem,
+                                            0 * fem, 72.5 * fem, 0 * fem),
+                                        width: 188 * fem,
+                                        height: 35.5 * fem,
+                                        child: Text(
+                                          'About',
+                                          textAlign: TextAlign.center,
+                                          style: SafeGoogleFont(
+                                            'PT Root UI',
+                                            decoration: TextDecoration.none,
+                                            fontSize: 16 * ffem,
+                                            fontWeight: FontWeight.w700,
+                                            height: 1.2575 * ffem / fem,
+                                            color: Color(0xffff7f36),
+                                          ),
+                                        ),
+                                        decoration: BoxDecoration(
+                                          border: Border(
+                                            bottom: BorderSide(
+                                              color: Color(0xffff7f36),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      TextButton(
+                                        // tab5Fg (1:736)
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: ((context) => (Sessions(
+                                                    product: product,
+                                                  ))),
+                                            ),
+                                          );
+                                        },
+                                        style: TextButton.styleFrom(
+                                          padding: EdgeInsets.zero,
+                                        ),
+                                        child: Container(
+                                          width: 188 * fem,
+                                          height: double.infinity,
+                                          child: Center(
+                                            child: Text(
+                                              'Sessions',
+                                              textAlign: TextAlign.center,
+                                              style: SafeGoogleFont(
+                                                'PT Root UI',
+                                                fontSize: 16 * ffem,
+                                                fontWeight: FontWeight.w700,
+                                                height: 1.2575 * ffem / fem,
+                                                color: Color(0xff637393),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
