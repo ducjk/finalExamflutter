@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:test_project/model/product_model.dart';
 import 'package:test_project/utils.dart';
 
-class Scene extends StatelessWidget {
+class Sessions extends StatelessWidget {
+  final ProductModel product;
+  const Sessions({super.key, required this.product});
   @override
   Widget build(BuildContext context) {
     double baseWidth = 375;
@@ -52,7 +55,7 @@ class Scene extends StatelessWidget {
                             width: 18 * fem,
                             height: 18 * fem,
                             child: Image.asset(
-                              'assets/interfaces/images/calendar-t74.png',
+                              'assets/icon/calendar.png',
                               width: 18 * fem,
                               height: 18 * fem,
                             ),
@@ -62,6 +65,7 @@ class Scene extends StatelessWidget {
                             'April, 18',
                             style: SafeGoogleFont(
                               'PT Root UI',
+                              decoration: TextDecoration.none,
                               fontSize: 14 * ffem,
                               fontWeight: FontWeight.w700,
                               height: 1.1428571429 * ffem / fem,
@@ -94,7 +98,7 @@ class Scene extends StatelessWidget {
                               width: 13 * fem,
                               height: 16 * fem,
                               child: Image.asset(
-                                'assets/interfaces/images/sort-gQS.png',
+                                'assets/icon/sort.png',
                                 width: 13 * fem,
                                 height: 16 * fem,
                               ),
@@ -104,6 +108,7 @@ class Scene extends StatelessWidget {
                               'Time ↑',
                               style: SafeGoogleFont(
                                 'PT Root UI',
+                                decoration: TextDecoration.none,
                                 fontSize: 14 * ffem,
                                 fontWeight: FontWeight.w700,
                                 height: 1.1428571429 * ffem / fem,
@@ -134,7 +139,7 @@ class Scene extends StatelessWidget {
                               width: 40 * fem,
                               height: 24 * fem,
                               child: Image.asset(
-                                'assets/interfaces/images/option.png',
+                                'assets/icon/option.png',
                                 width: 40 * fem,
                                 height: 24 * fem,
                               ),
@@ -144,6 +149,7 @@ class Scene extends StatelessWidget {
                               'By cinema',
                               style: SafeGoogleFont(
                                 'PT Root UI',
+                                decoration: TextDecoration.none,
                                 fontSize: 14 * ffem,
                                 fontWeight: FontWeight.w700,
                                 height: 1.1428571429 * ffem / fem,
@@ -192,6 +198,7 @@ class Scene extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: SafeGoogleFont(
                                 'PT Root UI',
+                                decoration: TextDecoration.none,
                                 fontSize: 12 * ffem,
                                 fontWeight: FontWeight.w500,
                                 height: 1.1666666667 * ffem / fem,
@@ -213,6 +220,7 @@ class Scene extends StatelessWidget {
                                     'Adult',
                                     style: SafeGoogleFont(
                                       'PT Root UI',
+                                      decoration: TextDecoration.none,
                                       fontSize: 12 * ffem,
                                       fontWeight: FontWeight.w500,
                                       height: 1.1666666667 * ffem / fem,
@@ -228,6 +236,7 @@ class Scene extends StatelessWidget {
                                     'Child',
                                     style: SafeGoogleFont(
                                       'PT Root UI',
+                                      decoration: TextDecoration.none,
                                       fontSize: 12 * ffem,
                                       fontWeight: FontWeight.w500,
                                       height: 1.1666666667 * ffem / fem,
@@ -243,6 +252,7 @@ class Scene extends StatelessWidget {
                                     'Student',
                                     style: SafeGoogleFont(
                                       'PT Root UI',
+                                      decoration: TextDecoration.none,
                                       fontSize: 12 * ffem,
                                       fontWeight: FontWeight.w500,
                                       height: 1.1666666667 * ffem / fem,
@@ -255,6 +265,7 @@ class Scene extends StatelessWidget {
                                   'VIP',
                                   style: SafeGoogleFont(
                                     'PT Root UI',
+                                    decoration: TextDecoration.none,
                                     fontSize: 12 * ffem,
                                     fontWeight: FontWeight.w500,
                                     height: 1.1666666667 * ffem / fem,
@@ -316,6 +327,8 @@ class Scene extends StatelessWidget {
                                                 '14:40',
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 18 * ffem,
                                                   fontWeight: FontWeight.w700,
                                                   height:
@@ -347,6 +360,9 @@ class Scene extends StatelessWidget {
                                                           'IMAX',
                                                           style: SafeGoogleFont(
                                                             'PT Root UI',
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .none,
                                                             fontSize: 12 * ffem,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -373,6 +389,9 @@ class Scene extends StatelessWidget {
                                                           'Рус',
                                                           style: SafeGoogleFont(
                                                             'PT Root UI',
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .none,
                                                             fontSize: 12 * ffem,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -422,6 +441,8 @@ class Scene extends StatelessWidget {
                                                 'Eurasia Cinema7',
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 14 * ffem,
                                                   fontWeight: FontWeight.w700,
                                                   height:
@@ -452,6 +473,9 @@ class Scene extends StatelessWidget {
                                                         '2200 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -476,6 +500,9 @@ class Scene extends StatelessWidget {
                                                         '1000 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -500,6 +527,9 @@ class Scene extends StatelessWidget {
                                                         '1500 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -524,6 +554,9 @@ class Scene extends StatelessWidget {
                                                         '•',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -591,6 +624,8 @@ class Scene extends StatelessWidget {
                                                 '15:10',
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 18 * ffem,
                                                   fontWeight: FontWeight.w700,
                                                   height:
@@ -617,6 +652,8 @@ class Scene extends StatelessWidget {
                                                       'IMAX',
                                                       style: SafeGoogleFont(
                                                         'PT Root UI',
+                                                        decoration:
+                                                            TextDecoration.none,
                                                         fontSize: 12 * ffem,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -633,6 +670,8 @@ class Scene extends StatelessWidget {
                                                     'Рус',
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
+                                                      decoration:
+                                                          TextDecoration.none,
                                                       fontSize: 12 * ffem,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -677,6 +716,8 @@ class Scene extends StatelessWidget {
                                                 'Kinopark 8 IMAX Saryarka',
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 14 * ffem,
                                                   fontWeight: FontWeight.w700,
                                                   height:
@@ -707,6 +748,9 @@ class Scene extends StatelessWidget {
                                                         '3500 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -731,6 +775,9 @@ class Scene extends StatelessWidget {
                                                         '1500 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -755,6 +802,9 @@ class Scene extends StatelessWidget {
                                                         '2500 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -779,6 +829,9 @@ class Scene extends StatelessWidget {
                                                         '4000 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -846,6 +899,8 @@ class Scene extends StatelessWidget {
                                                 '15:40',
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 18 * ffem,
                                                   fontWeight: FontWeight.w700,
                                                   height:
@@ -872,6 +927,8 @@ class Scene extends StatelessWidget {
                                                       'Laser',
                                                       style: SafeGoogleFont(
                                                         'PT Root UI',
+                                                        decoration:
+                                                            TextDecoration.none,
                                                         fontSize: 12 * ffem,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -888,6 +945,8 @@ class Scene extends StatelessWidget {
                                                     'Eng',
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
+                                                      decoration:
+                                                          TextDecoration.none,
                                                       fontSize: 12 * ffem,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -932,6 +991,8 @@ class Scene extends StatelessWidget {
                                                 'Kinopark 6 Keruencity Astana',
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 14 * ffem,
                                                   fontWeight: FontWeight.w700,
                                                   height:
@@ -967,6 +1028,9 @@ class Scene extends StatelessWidget {
                                                         '2700 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -993,6 +1057,9 @@ class Scene extends StatelessWidget {
                                                         '900 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -1019,6 +1086,9 @@ class Scene extends StatelessWidget {
                                                         '1700 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -1040,6 +1110,9 @@ class Scene extends StatelessWidget {
                                                         '•',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -1107,6 +1180,8 @@ class Scene extends StatelessWidget {
                                                 '16:05',
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 18 * ffem,
                                                   fontWeight: FontWeight.w700,
                                                   height:
@@ -1138,6 +1213,9 @@ class Scene extends StatelessWidget {
                                                           'IMAX',
                                                           style: SafeGoogleFont(
                                                             'PT Root UI',
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .none,
                                                             fontSize: 12 * ffem,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -1164,6 +1242,9 @@ class Scene extends StatelessWidget {
                                                           'Қаз',
                                                           style: SafeGoogleFont(
                                                             'PT Root UI',
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .none,
                                                             fontSize: 12 * ffem,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -1213,6 +1294,8 @@ class Scene extends StatelessWidget {
                                                 'Arman Asia Park',
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 14 * ffem,
                                                   fontWeight: FontWeight.w700,
                                                   height:
@@ -1248,6 +1331,9 @@ class Scene extends StatelessWidget {
                                                         '1900 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -1274,6 +1360,9 @@ class Scene extends StatelessWidget {
                                                         '•',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -1300,6 +1389,9 @@ class Scene extends StatelessWidget {
                                                         '1200 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -1321,6 +1413,9 @@ class Scene extends StatelessWidget {
                                                         '•',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -1388,6 +1483,8 @@ class Scene extends StatelessWidget {
                                                 '16:15',
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 18 * ffem,
                                                   fontWeight: FontWeight.w700,
                                                   height:
@@ -1419,6 +1516,9 @@ class Scene extends StatelessWidget {
                                                           'IMAX',
                                                           style: SafeGoogleFont(
                                                             'PT Root UI',
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .none,
                                                             fontSize: 12 * ffem,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -1445,6 +1545,9 @@ class Scene extends StatelessWidget {
                                                           'Рус',
                                                           style: SafeGoogleFont(
                                                             'PT Root UI',
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .none,
                                                             fontSize: 12 * ffem,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -1494,6 +1597,8 @@ class Scene extends StatelessWidget {
                                                 'Chaplin MEGA Silk Way',
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 14 * ffem,
                                                   fontWeight: FontWeight.w700,
                                                   height:
@@ -1529,6 +1634,9 @@ class Scene extends StatelessWidget {
                                                         '2300 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -1555,6 +1663,9 @@ class Scene extends StatelessWidget {
                                                         '•',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -1581,6 +1692,9 @@ class Scene extends StatelessWidget {
                                                         '1600 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -1602,6 +1716,9 @@ class Scene extends StatelessWidget {
                                                         '•',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -1669,6 +1786,8 @@ class Scene extends StatelessWidget {
                                                 '15:10',
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 18 * ffem,
                                                   fontWeight: FontWeight.w700,
                                                   height:
@@ -1700,6 +1819,9 @@ class Scene extends StatelessWidget {
                                                           'IMAX',
                                                           style: SafeGoogleFont(
                                                             'PT Root UI',
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .none,
                                                             fontSize: 12 * ffem,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -1726,6 +1848,9 @@ class Scene extends StatelessWidget {
                                                           'Рус',
                                                           style: SafeGoogleFont(
                                                             'PT Root UI',
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .none,
                                                             fontSize: 12 * ffem,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -1775,6 +1900,8 @@ class Scene extends StatelessWidget {
                                                 'Chaplin Khan Shatyr',
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 14 * ffem,
                                                   fontWeight: FontWeight.w700,
                                                   height:
@@ -1810,6 +1937,9 @@ class Scene extends StatelessWidget {
                                                         '2400 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -1836,6 +1966,9 @@ class Scene extends StatelessWidget {
                                                         '•',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -1862,6 +1995,9 @@ class Scene extends StatelessWidget {
                                                         '1700 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -1883,6 +2019,9 @@ class Scene extends StatelessWidget {
                                                         '•',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -1950,6 +2089,8 @@ class Scene extends StatelessWidget {
                                                 '16:30',
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 18 * ffem,
                                                   fontWeight: FontWeight.w700,
                                                   height:
@@ -1976,6 +2117,8 @@ class Scene extends StatelessWidget {
                                                       'IMAX',
                                                       style: SafeGoogleFont(
                                                         'PT Root UI',
+                                                        decoration:
+                                                            TextDecoration.none,
                                                         fontSize: 12 * ffem,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -1992,6 +2135,8 @@ class Scene extends StatelessWidget {
                                                     'Рус',
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
+                                                      decoration:
+                                                          TextDecoration.none,
                                                       fontSize: 12 * ffem,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -2036,6 +2181,8 @@ class Scene extends StatelessWidget {
                                                 'Kinopark 7 IMAX Keruen',
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 14 * ffem,
                                                   fontWeight: FontWeight.w700,
                                                   height:
@@ -2071,6 +2218,9 @@ class Scene extends StatelessWidget {
                                                         '2700 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -2097,6 +2247,9 @@ class Scene extends StatelessWidget {
                                                         '900 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -2123,6 +2276,9 @@ class Scene extends StatelessWidget {
                                                         '1700 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -2144,6 +2300,9 @@ class Scene extends StatelessWidget {
                                                         '•',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -2211,6 +2370,8 @@ class Scene extends StatelessWidget {
                                                 '16:45',
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 18 * ffem,
                                                   fontWeight: FontWeight.w700,
                                                   height:
@@ -2237,6 +2398,8 @@ class Scene extends StatelessWidget {
                                                       'ATMOS',
                                                       style: SafeGoogleFont(
                                                         'PT Root UI',
+                                                        decoration:
+                                                            TextDecoration.none,
                                                         fontSize: 12 * ffem,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -2253,6 +2416,8 @@ class Scene extends StatelessWidget {
                                                     'Рус',
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
+                                                      decoration:
+                                                          TextDecoration.none,
                                                       fontSize: 12 * ffem,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -2287,6 +2452,8 @@ class Scene extends StatelessWidget {
                                                 'Chaplin MEGA Silk Way',
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 14 * ffem,
                                                   fontWeight: FontWeight.w700,
                                                   height:
@@ -2322,6 +2489,9 @@ class Scene extends StatelessWidget {
                                                         '2300 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -2348,6 +2518,9 @@ class Scene extends StatelessWidget {
                                                         '•',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -2374,6 +2547,9 @@ class Scene extends StatelessWidget {
                                                         '1 600 ₸',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -2395,6 +2571,9 @@ class Scene extends StatelessWidget {
                                                         '•',
                                                         style: SafeGoogleFont(
                                                           'PT Root UI',
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
                                                           fontSize: 14 * ffem,
                                                           fontWeight:
                                                               FontWeight.w400,
@@ -2448,125 +2627,11 @@ class Scene extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          // statusbar2yY (8:692)
-                          margin: EdgeInsets.fromLTRB(
-                              34.27 * fem, 0 * fem, 14.34 * fem, 15.33 * fem),
-                          width: double.infinity,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                // time7zz (I8:692;1:70)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 232.23 * fem, 0.41 * fem),
-                                width: 28.5 * fem,
-                                height: 11.09 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/time.png',
-                                  width: 28.5 * fem,
-                                  height: 11.09 * fem,
-                                ),
-                              ),
-                              Container(
-                                // cellularconnectionn5Y (I8:692;1:79)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0.17 * fem, 5 * fem, 0 * fem),
-                                width: 17 * fem,
-                                height: 10.67 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/cellular-connection-Nmx.png',
-                                  width: 17 * fem,
-                                  height: 10.67 * fem,
-                                ),
-                              ),
-                              Container(
-                                // wifiUj4 (I8:692;1:75)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 5 * fem, 0.17 * fem),
-                                width: 15.33 * fem,
-                                height: 11 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/wifi-6y8.png',
-                                  width: 15.33 * fem,
-                                  height: 11 * fem,
-                                ),
-                              ),
-                              Container(
-                                // batteryArn (I8:692;1:71)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0.17 * fem, 0 * fem, 0 * fem),
-                                width: 24.33 * fem,
-                                height: 11.33 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/battery-1qt.png',
-                                  width: 24.33 * fem,
-                                  height: 11.33 * fem,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
                           // autogroupanocUMg (6rYroTZaPJprUtkq95aNoC)
                           width: double.infinity,
                           height: 124 * fem,
                           child: Stack(
                             children: [
-                              Positioned(
-                                // tabs16i (8:688)
-                                left: 0 * fem,
-                                top: 64 * fem,
-                                child: Container(
-                                  width: 376 * fem,
-                                  height: 50 * fem,
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      TextButton(
-                                        // tabsPp (8:689)
-                                        onPressed: () {},
-                                        style: TextButton.styleFrom(
-                                          padding: EdgeInsets.zero,
-                                        ),
-                                        child: Container(
-                                          width: 188 * fem,
-                                          height: double.infinity,
-                                          child: Center(
-                                            child: Text(
-                                              'About',
-                                              textAlign: TextAlign.center,
-                                              style: SafeGoogleFont(
-                                                'PT Root UI',
-                                                fontSize: 16 * ffem,
-                                                fontWeight: FontWeight.w700,
-                                                height: 1.2575 * ffem / fem,
-                                                color: Color(0xff637393),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        // tabWBt (8:690)
-                                        padding: EdgeInsets.fromLTRB(63.5 * fem,
-                                            0 * fem, 63.5 * fem, 0 * fem),
-                                        height: 35.5 * fem,
-                                        child: Text(
-                                          'Sessions',
-                                          textAlign: TextAlign.center,
-                                          style: SafeGoogleFont(
-                                            'PT Root UI',
-                                            fontSize: 16 * ffem,
-                                            fontWeight: FontWeight.w700,
-                                            height: 1.2575 * ffem / fem,
-                                            color: Color(0xffff7f36),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
                               Positioned(
                                 // topbarPWa (8:691)
                                 left: 0 * fem,
@@ -2587,21 +2652,22 @@ class Scene extends StatelessWidget {
                                             CrossAxisAlignment.center,
                                         children: [
                                           Container(
-                                            // glyphCU2 (I8:691;4:221)
+                                            // glyph8dG (I1:714;4:221)
                                             margin: EdgeInsets.fromLTRB(0 * fem,
                                                 0 * fem, 83.5 * fem, 72 * fem),
                                             child: TextButton(
-                                              onPressed: () {},
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
                                               child: Container(
                                                 width: 40 * fem,
                                                 height: 40 * fem,
-                                                child: Image.asset(
-                                                  'assets/interfaces/images/glyph-8Pc.png',
-                                                  width: 40 * fem,
-                                                  height: 40 * fem,
+                                                child: Icon(
+                                                  Icons.arrow_back_ios,
+                                                  size: 40 * fem,
                                                 ),
                                               ),
                                             ),
@@ -2626,6 +2692,8 @@ class Scene extends StatelessWidget {
                                                     textAlign: TextAlign.center,
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
+                                                      decoration:
+                                                          TextDecoration.none,
                                                       fontSize: 18 * ffem,
                                                       fontWeight:
                                                           FontWeight.w700,
@@ -2640,6 +2708,8 @@ class Scene extends StatelessWidget {
                                                   textAlign: TextAlign.center,
                                                   style: SafeGoogleFont(
                                                     'PT Root UI',
+                                                    decoration:
+                                                        TextDecoration.none,
                                                     fontSize: 14 * ffem,
                                                     fontWeight: FontWeight.w400,
                                                     height: 1 * ffem / fem,
@@ -2649,21 +2719,75 @@ class Scene extends StatelessWidget {
                                               ],
                                             ),
                                           ),
-                                          Container(
-                                            // glyphcAN (I8:691;4:225)
-                                            margin: EdgeInsets.fromLTRB(0 * fem,
-                                                88 * fem, 0 * fem, 0 * fem),
-                                            width: 24 * fem,
-                                            height: 24 * fem,
-                                            child: Image.asset(
-                                              'assets/interfaces/images/glyph-pVp.png',
-                                              width: 24 * fem,
-                                              height: 24 * fem,
-                                            ),
-                                          ),
                                         ],
                                       ),
                                     ),
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                // tabs16i (8:688)
+                                left: 0 * fem,
+                                top: 64 * fem,
+                                child: Container(
+                                  width: 376 * fem,
+                                  height: 50 * fem,
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      TextButton(
+                                        // tabsPp (8:689)
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        style: TextButton.styleFrom(
+                                          padding: EdgeInsets.zero,
+                                        ),
+                                        child: Container(
+                                          width: 188 * fem,
+                                          height: double.infinity,
+                                          child: Center(
+                                            child: Text(
+                                              'About',
+                                              textAlign: TextAlign.center,
+                                              style: SafeGoogleFont(
+                                                'PT Root UI',
+                                                decoration: TextDecoration.none,
+                                                fontSize: 16 * ffem,
+                                                fontWeight: FontWeight.w700,
+                                                height: 1.2575 * ffem / fem,
+                                                color: Color(0xff637393),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        // tabWBt (8:690)
+                                        padding: EdgeInsets.fromLTRB(63.5 * fem,
+                                            0 * fem, 63.5 * fem, 0 * fem),
+                                        height: 35.5 * fem,
+                                        child: Text(
+                                          'Sessions',
+                                          textAlign: TextAlign.center,
+                                          style: SafeGoogleFont(
+                                            'PT Root UI',
+                                            decoration: TextDecoration.none,
+                                            fontSize: 16 * ffem,
+                                            fontWeight: FontWeight.w700,
+                                            height: 1.2575 * ffem / fem,
+                                            color: Color(0xffff7f36),
+                                          ),
+                                        ),
+                                        decoration: BoxDecoration(
+                                          border: Border(
+                                            bottom: BorderSide(
+                                              color: Color(0xffff7f36),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),

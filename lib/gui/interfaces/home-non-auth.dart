@@ -3,16 +3,17 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:test_project/gui/interfaces/movie-about.dart';
 import 'package:test_project/model/product_model.dart';
 import 'package:test_project/model/product_provider.dart';
 import 'package:test_project/utils.dart';
 
-class Scene extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
-  State<Scene> createState() => _SceneState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _SceneState extends State<Scene> {
+class _HomePageState extends State<HomePage> {
   List<ProductModel> listProduct = [];
 
   @override
@@ -354,7 +355,16 @@ class _SceneState extends State<Scene> {
                                   margin: EdgeInsets.fromLTRB(
                                       0 * fem, 0 * fem, 16 * fem, 0 * fem),
                                   child: TextButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: ((context) => (MovieAbout(
+                                                product: e,
+                                              ))),
+                                        ),
+                                      );
+                                    },
                                     style: TextButton.styleFrom(
                                       padding: EdgeInsets.zero,
                                     ),
@@ -427,7 +437,16 @@ class _SceneState extends State<Scene> {
                                 ),
                                 TextButton(
                                   // moviecardXTY (1:449)
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: ((context) => (MovieAbout(
+                                              product: e,
+                                            ))),
+                                      ),
+                                    );
+                                  },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),

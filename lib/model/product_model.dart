@@ -4,8 +4,20 @@ class ProductModel {
   String? description;
   String? category;
   String? avatar;
+  String? certificate;
+  String? runtime;
+  String? release;
+  String? cast;
   ProductModel(
-      {this.id, this.name, this.description, this.category, this.avatar});
+      {this.id,
+      this.name,
+      this.description,
+      this.category,
+      this.avatar,
+      this.certificate,
+      this.runtime,
+      this.release,
+      this.cast});
 
   // Map toJson() => {
   //       'id': id,

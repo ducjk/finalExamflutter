@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:test_project/gui/interfaces/movie-sessions.dart';
+import 'package:test_project/model/product_model.dart';
 import 'package:test_project/utils.dart';
 
-class Scene extends StatelessWidget {
+class MovieAbout extends StatelessWidget {
+  final ProductModel product;
+  const MovieAbout({super.key, required this.product});
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 375;
@@ -29,8 +34,8 @@ class Scene extends StatelessWidget {
                 child: SizedBox(
                   width: 375 * fem,
                   height: 210 * fem,
-                  child: Image.asset(
-                    'assets/interfaces/images/video.png',
+                  child: Image.network(
+                    product.avatar.toString(),
                     width: 375 * fem,
                     height: 210 * fem,
                   ),
@@ -60,9 +65,10 @@ class Scene extends StatelessWidget {
                         maxWidth: 339 * fem,
                       ),
                       child: Text(
-                        'When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, Batman is forced to investigate the city\'s hidden corruption and question his family\'s involvement.',
+                        product.description.toString(),
                         style: SafeGoogleFont(
                           'PT Root UI',
+                          decoration: TextDecoration.none,
                           fontSize: 14 * ffem,
                           fontWeight: FontWeight.w400,
                           height: 1.4285714286 * ffem / fem,
@@ -104,6 +110,7 @@ class Scene extends StatelessWidget {
                                           'Certificate',
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 14 * ffem,
                                             fontWeight: FontWeight.w400,
                                             height: 1.2575 * ffem / fem,
@@ -123,9 +130,10 @@ class Scene extends StatelessWidget {
                                         ),
                                         child: Center(
                                           child: Text(
-                                            '16+',
+                                            product.certificate ?? "",
                                             style: SafeGoogleFont(
                                               'PT Root UI',
+                                              decoration: TextDecoration.none,
                                               fontSize: 14 * ffem,
                                               fontWeight: FontWeight.w500,
                                               height: 1.2575 * ffem / fem,
@@ -154,6 +162,7 @@ class Scene extends StatelessWidget {
                                           'Runtime',
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 14 * ffem,
                                             fontWeight: FontWeight.w400,
                                             height: 1.2575 * ffem / fem,
@@ -163,9 +172,10 @@ class Scene extends StatelessWidget {
                                       ),
                                       Text(
                                         // nE6 (1:791)
-                                        '02:56',
+                                        product.runtime ?? "",
                                         style: SafeGoogleFont(
                                           'PT Root UI',
+                                          decoration: TextDecoration.none,
                                           fontSize: 14 * ffem,
                                           fontWeight: FontWeight.w500,
                                           height: 1.2575 * ffem / fem,
@@ -192,6 +202,7 @@ class Scene extends StatelessWidget {
                                           'Release',
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 14 * ffem,
                                             fontWeight: FontWeight.w400,
                                             height: 1.2575 * ffem / fem,
@@ -201,9 +212,10 @@ class Scene extends StatelessWidget {
                                       ),
                                       Text(
                                         // rNN (1:794)
-                                        '2022',
+                                        product.release ?? "",
                                         style: SafeGoogleFont(
                                           'PT Root UI',
+                                          decoration: TextDecoration.none,
                                           fontSize: 14 * ffem,
                                           fontWeight: FontWeight.w500,
                                           height: 1.2575 * ffem / fem,
@@ -230,6 +242,7 @@ class Scene extends StatelessWidget {
                                           'Genre',
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 14 * ffem,
                                             fontWeight: FontWeight.w400,
                                             height: 1.2575 * ffem / fem,
@@ -242,6 +255,7 @@ class Scene extends StatelessWidget {
                                         'Action, Crime, Drama',
                                         style: SafeGoogleFont(
                                           'PT Root UI',
+                                          decoration: TextDecoration.none,
                                           fontSize: 14 * ffem,
                                           fontWeight: FontWeight.w500,
                                           height: 1.2575 * ffem / fem,
@@ -268,6 +282,7 @@ class Scene extends StatelessWidget {
                                           'Director',
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 14 * ffem,
                                             fontWeight: FontWeight.w400,
                                             height: 1.2575 * ffem / fem,
@@ -280,6 +295,7 @@ class Scene extends StatelessWidget {
                                         'Matt Reeves',
                                         style: SafeGoogleFont(
                                           'PT Root UI',
+                                          decoration: TextDecoration.none,
                                           fontSize: 14 * ffem,
                                           fontWeight: FontWeight.w500,
                                           height: 1.2575 * ffem / fem,
@@ -306,6 +322,7 @@ class Scene extends StatelessWidget {
                                     'Cast',
                                     style: (
                                       'PT Root UI',
+                                      decoration: TextDecoration.none,
                                       fontSize: 14 * ffem,
                                       fontWeight: FontWeight.w400,
                                       height: 1.2575 * ffem / fem,
@@ -319,9 +336,10 @@ class Scene extends StatelessWidget {
                                     maxWidth: 222 * fem,
                                   ),
                                   child: Text(
-                                    'Robert Pattinson, Zoë Kravitz, Jeffrey Wright, Colin Farrell, Paul Dano, John Turturro, 	Andy Serkis, Peter Sarsgaard',
+                                    product.cast ?? "",
                                     style: SafeGoogleFont(
                                       'PT Root UI',
+                                      decoration: TextDecoration.none,
                                       fontSize: 14 * ffem,
                                       fontWeight: FontWeight.w500,
                                       height: 1.2575 * ffem / fem,
@@ -376,6 +394,7 @@ class Scene extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: SafeGoogleFont(
                                 'PT Root UI',
+                                decoration: TextDecoration.none,
                                 fontSize: 20 * ffem,
                                 fontWeight: FontWeight.w700,
                                 height: 1.2575 * ffem / fem,
@@ -389,6 +408,7 @@ class Scene extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: SafeGoogleFont(
                               'PT Root UI',
+                              decoration: TextDecoration.none,
                               fontSize: 14 * ffem,
                               fontWeight: FontWeight.w400,
                               height: 1.2857142857 * ffem / fem,
@@ -425,6 +445,7 @@ class Scene extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: SafeGoogleFont(
                                 'PT Root UI',
+                                decoration: TextDecoration.none,
                                 fontSize: 20 * ffem,
                                 fontWeight: FontWeight.w700,
                                 height: 1.2575 * ffem / fem,
@@ -438,6 +459,7 @@ class Scene extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: SafeGoogleFont(
                               'PT Root UI',
+                              decoration: TextDecoration.none,
                               fontSize: 14 * ffem,
                               fontWeight: FontWeight.w400,
                               height: 1.2857142857 * ffem / fem,
@@ -471,7 +493,16 @@ class Scene extends StatelessWidget {
                     ),
                     child: TextButton(
                       // buttonayp (1:805)
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: ((context) => (Sessions(
+                                  product: product,
+                                ))),
+                          ),
+                        );
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -503,6 +534,7 @@ class Scene extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: SafeGoogleFont(
                               'PT Root UI',
+                              decoration: TextDecoration.none,
                               fontSize: 18 * ffem,
                               fontWeight: FontWeight.w700,
                               height: 1.2575 * ffem / fem,
@@ -538,126 +570,11 @@ class Scene extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          // statusbarNYJ (1:807)
-                          margin: EdgeInsets.fromLTRB(
-                              34.27 * fem, 0 * fem, 14.34 * fem, 15.33 * fem),
-                          width: double.infinity,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                // timeszr (I1:807;1:70)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 232.23 * fem, 0.41 * fem),
-                                width: 28.5 * fem,
-                                height: 11.09 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/time-FMc.png',
-                                  width: 28.5 * fem,
-                                  height: 11.09 * fem,
-                                ),
-                              ),
-                              Container(
-                                // cellularconnectionaeN (I1:807;1:79)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0.17 * fem, 5 * fem, 0 * fem),
-                                width: 17 * fem,
-                                height: 10.67 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/cellular-connection-2Tt.png',
-                                  width: 17 * fem,
-                                  height: 10.67 * fem,
-                                ),
-                              ),
-                              Container(
-                                // wifi3H4 (I1:807;1:75)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 5 * fem, 0.17 * fem),
-                                width: 15.33 * fem,
-                                height: 11 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/wifi-5ia.png',
-                                  width: 15.33 * fem,
-                                  height: 11 * fem,
-                                ),
-                              ),
-                              Container(
-                                // batteryj9t (I1:807;1:71)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0.17 * fem, 0 * fem, 0 * fem),
-                                width: 24.33 * fem,
-                                height: 11.33 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/battery.png',
-                                  width: 24.33 * fem,
-                                  height: 11.33 * fem,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
                           // autogroupdszjZei (6rYmmbwt3P6sUGVcLWDszJ)
                           width: double.infinity,
                           height: 124 * fem,
                           child: Stack(
                             children: [
-                              Positioned(
-                                // tabsV2a (1:743)
-                                left: 0 * fem,
-                                top: 64 * fem,
-                                child: Container(
-                                  width: 376 * fem,
-                                  height: 50 * fem,
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Container(
-                                        // tabbbQ (1:735)
-                                        padding: EdgeInsets.fromLTRB(72.5 * fem,
-                                            0 * fem, 72.5 * fem, 0 * fem),
-                                        width: 188 * fem,
-                                        height: 35.5 * fem,
-                                        child: Text(
-                                          'About',
-                                          textAlign: TextAlign.center,
-                                          style: SafeGoogleFont(
-                                            'PT Root UI',
-                                            fontSize: 16 * ffem,
-                                            fontWeight: FontWeight.w700,
-                                            height: 1.2575 * ffem / fem,
-                                            color: Color(0xffff7f36),
-                                          ),
-                                        ),
-                                      ),
-                                      TextButton(
-                                        // tab5Fg (1:736)
-                                        onPressed: () {},
-                                        style: TextButton.styleFrom(
-                                          padding: EdgeInsets.zero,
-                                        ),
-                                        child: Container(
-                                          width: 188 * fem,
-                                          height: double.infinity,
-                                          child: Center(
-                                            child: Text(
-                                              'Sessions',
-                                              textAlign: TextAlign.center,
-                                              style: SafeGoogleFont(
-                                                'PT Root UI',
-                                                fontSize: 16 * ffem,
-                                                fontWeight: FontWeight.w700,
-                                                height: 1.2575 * ffem / fem,
-                                                color: Color(0xff637393),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
                               Positioned(
                                 // topbarGqx (1:714)
                                 left: 0 * fem,
@@ -682,17 +599,18 @@ class Scene extends StatelessWidget {
                                             margin: EdgeInsets.fromLTRB(0 * fem,
                                                 0 * fem, 83.5 * fem, 72 * fem),
                                             child: TextButton(
-                                              onPressed: () {},
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
                                               child: Container(
                                                 width: 40 * fem,
                                                 height: 40 * fem,
-                                                child: Image.asset(
-                                                  'assets/interfaces/images/glyph-ykv.png',
-                                                  width: 40 * fem,
-                                                  height: 40 * fem,
+                                                child: Icon(
+                                                  Icons.arrow_back_ios,
+                                                  size: 40 * fem,
                                                 ),
                                               ),
                                             ),
@@ -717,6 +635,8 @@ class Scene extends StatelessWidget {
                                                     textAlign: TextAlign.center,
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
+                                                      decoration:
+                                                          TextDecoration.none,
                                                       fontSize: 18 * ffem,
                                                       fontWeight:
                                                           FontWeight.w700,
@@ -731,6 +651,8 @@ class Scene extends StatelessWidget {
                                                   textAlign: TextAlign.center,
                                                   style: SafeGoogleFont(
                                                     'PT Root UI',
+                                                    decoration:
+                                                        TextDecoration.none,
                                                     fontSize: 14 * ffem,
                                                     fontWeight: FontWeight.w400,
                                                     height: 1 * ffem / fem,
@@ -740,21 +662,82 @@ class Scene extends StatelessWidget {
                                               ],
                                             ),
                                           ),
-                                          Container(
-                                            // glyphizn (I1:714;4:225)
-                                            margin: EdgeInsets.fromLTRB(0 * fem,
-                                                88 * fem, 0 * fem, 0 * fem),
-                                            width: 24 * fem,
-                                            height: 24 * fem,
-                                            child: Image.asset(
-                                              'assets/interfaces/images/glyph.png',
-                                              width: 24 * fem,
-                                              height: 24 * fem,
-                                            ),
-                                          ),
                                         ],
                                       ),
                                     ),
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                // tabsV2a (1:743)
+                                left: 0 * fem,
+                                top: 64 * fem,
+                                child: Container(
+                                  width: 376 * fem,
+                                  height: 50 * fem,
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Container(
+                                        // tabbbQ (1:735)
+                                        padding: EdgeInsets.fromLTRB(72.5 * fem,
+                                            0 * fem, 72.5 * fem, 0 * fem),
+                                        width: 188 * fem,
+                                        height: 35.5 * fem,
+                                        child: Text(
+                                          'About',
+                                          textAlign: TextAlign.center,
+                                          style: SafeGoogleFont(
+                                            'PT Root UI',
+                                            decoration: TextDecoration.none,
+                                            fontSize: 16 * ffem,
+                                            fontWeight: FontWeight.w700,
+                                            height: 1.2575 * ffem / fem,
+                                            color: Color(0xffff7f36),
+                                          ),
+                                        ),
+                                        decoration: BoxDecoration(
+                                          border: Border(
+                                            bottom: BorderSide(
+                                              color: Color(0xffff7f36),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      TextButton(
+                                        // tab5Fg (1:736)
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: ((context) => (Sessions(
+                                                    product: product,
+                                                  ))),
+                                            ),
+                                          );
+                                        },
+                                        style: TextButton.styleFrom(
+                                          padding: EdgeInsets.zero,
+                                        ),
+                                        child: Container(
+                                          width: 188 * fem,
+                                          height: double.infinity,
+                                          child: Center(
+                                            child: Text(
+                                              'Sessions',
+                                              textAlign: TextAlign.center,
+                                              style: SafeGoogleFont(
+                                                'PT Root UI',
+                                                fontSize: 16 * ffem,
+                                                fontWeight: FontWeight.w700,
+                                                height: 1.2575 * ffem / fem,
+                                                color: Color(0xff637393),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
