@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:test_project/model/product_model.dart';
+import 'package:test_project/product/product_model.dart';
 
 class ProductProvider extends ChangeNotifier {
   List<ProductModel> list = [];

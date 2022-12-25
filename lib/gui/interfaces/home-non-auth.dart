@@ -4,8 +4,8 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:test_project/gui/interfaces/movie-about.dart';
-import 'package:test_project/model/product_model.dart';
-import 'package:test_project/model/product_provider.dart';
+import 'package:test_project/product/product_model.dart';
+import 'package:test_project/product/product_provider.dart';
 import 'package:test_project/utils.dart';
 
 class HomePage extends StatefulWidget {
@@ -293,7 +293,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               // conentSUi (1:312)
-              margin: EdgeInsets.fromLTRB(17 * fem, 0 * fem, 16 * fem, 0 * fem),
+              margin: EdgeInsets.fromLTRB(16 * fem, 0 * fem, 6 * fem, 0 * fem),
               width: double.infinity,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -340,103 +340,20 @@ class _HomePageState extends State<HomePage> {
                     // listp7t (1:446)
                     width: double.infinity,
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ...listProduct.map((e) {
-                          return Container(
-                            // rowwyC (1:447)
-                            width: double.infinity,
-                            height: 279 * fem,
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  // moviecardfuC (1:448)
-                                  margin: EdgeInsets.fromLTRB(
-                                      0 * fem, 0 * fem, 16 * fem, 0 * fem),
-                                  child: TextButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: ((context) => (MovieAbout(
-                                                product: e,
-                                              ))),
-                                        ),
-                                      );
-                                    },
-                                    style: TextButton.styleFrom(
-                                      padding: EdgeInsets.zero,
-                                    ),
-                                    child: Container(
-                                      height: double.infinity,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            // coverN2v (I1:448;1:392)
-                                            margin: EdgeInsets.fromLTRB(0 * fem,
-                                                0 * fem, 0 * fem, 8 * fem),
-                                            width: 163 * fem,
-                                            height: 230 * fem,
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      8 * fem),
-                                              child: Image.network(
-                                                e.avatar.toString(),
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            // infoza6 (I1:448;1:395)
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Container(
-                                                  // titlejGn (I1:448;1:396)
-                                                  margin: EdgeInsets.fromLTRB(
-                                                      0 * fem,
-                                                      0 * fem,
-                                                      0 * fem,
-                                                      2 * fem),
-                                                  child: Text(
-                                                    e.name.toString(),
-                                                    style: SafeGoogleFont(
-                                                      'PT Root UI',
-                                                      fontSize: 16 * ffem,
-                                                      fontWeight:
-                                                          FontWeight.w700,
-                                                      height:
-                                                          1.2575 * ffem / fem,
-                                                      color: Color(0xffffffff),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  // genreCRG (I1:448;1:397)
-                                                  e.category.toString(),
-                                                  style: SafeGoogleFont(
-                                                    'PT Root UI',
-                                                    fontSize: 14 * ffem,
-                                                    fontWeight: FontWeight.w400,
-                                                    height: 1.2575 * ffem / fem,
-                                                    color: Color(0xff637393),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                TextButton(
-                                  // moviecardXTY (1:449)
+                        Wrap(
+                          spacing: 16,
+                          runSpacing: 6,
+                          children: [
+                            ...listProduct.map((e) {
+                              return Container(
+                                height: 300 * fem,
+                                width: 150 * fem,
+                                // moviecardfuC (1:448)
+                                margin: EdgeInsets.fromLTRB(
+                                    0 * fem, 0 * fem, 16 * fem, 0 * fem),
+                                child: TextButton(
                                   onPressed: () {
                                     Navigator.push(
                                       context,
@@ -457,10 +374,10 @@ class _HomePageState extends State<HomePage> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Container(
-                                          // cover3gn (I1:449;1:392)
+                                          // coverN2v (I1:448;1:392)
                                           margin: EdgeInsets.fromLTRB(0 * fem,
                                               0 * fem, 0 * fem, 8 * fem),
-                                          width: 163 * fem,
+                                          width: 150 * fem,
                                           height: 230 * fem,
                                           child: ClipRRect(
                                             borderRadius:
@@ -472,13 +389,13 @@ class _HomePageState extends State<HomePage> {
                                           ),
                                         ),
                                         Container(
-                                          // infojJi (I1:449;1:395)
+                                          // infoza6 (I1:448;1:395)
                                           child: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Container(
-                                                // title4Lz (I1:449;1:396)
+                                                // titlejGn (I1:448;1:396)
                                                 margin: EdgeInsets.fromLTRB(
                                                     0 * fem,
                                                     0 * fem,
@@ -496,7 +413,7 @@ class _HomePageState extends State<HomePage> {
                                                 ),
                                               ),
                                               Text(
-                                                // genre6oU (I1:449;1:397)
+                                                // genreCRG (I1:448;1:397)
                                                 e.category.toString(),
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
@@ -513,10 +430,186 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
-                          );
-                        }).toList()
+                              );
+                            }).toList()
+                          ],
+                        ),
+
+                        // ...listProduct.map((e) {
+                        //   return Container(
+                        //     // rowwyC (1:447)
+                        //     width: double.infinity,
+                        //     height: 279 * fem,
+                        //     child: Row(
+                        //       crossAxisAlignment: CrossAxisAlignment.center,
+                        //       children: [
+                        //         Container(
+                        //           // moviecardfuC (1:448)
+                        //           margin: EdgeInsets.fromLTRB(
+                        //               0 * fem, 0 * fem, 16 * fem, 0 * fem),
+                        //           child: TextButton(
+                        //             onPressed: () {
+                        //               Navigator.push(
+                        //                 context,
+                        //                 MaterialPageRoute(
+                        //                   builder: ((context) => (MovieAbout(
+                        //                         product: e,
+                        //                       ))),
+                        //                 ),
+                        //               );
+                        //             },
+                        //             style: TextButton.styleFrom(
+                        //               padding: EdgeInsets.zero,
+                        //             ),
+                        //             child: Container(
+                        //               height: double.infinity,
+                        //               child: Column(
+                        //                 crossAxisAlignment:
+                        //                     CrossAxisAlignment.start,
+                        //                 children: [
+                        //                   Container(
+                        //                     // coverN2v (I1:448;1:392)
+                        //                     margin: EdgeInsets.fromLTRB(0 * fem,
+                        //                         0 * fem, 0 * fem, 8 * fem),
+                        //                     width: 163 * fem,
+                        //                     height: 230 * fem,
+                        //                     child: ClipRRect(
+                        //                       borderRadius:
+                        //                           BorderRadius.circular(
+                        //                               8 * fem),
+                        //                       child: Image.network(
+                        //                         e.avatar.toString(),
+                        //                         fit: BoxFit.cover,
+                        //                       ),
+                        //                     ),
+                        //                   ),
+                        //                   Container(
+                        //                     // infoza6 (I1:448;1:395)
+                        //                     child: Column(
+                        //                       crossAxisAlignment:
+                        //                           CrossAxisAlignment.start,
+                        //                       children: [
+                        //                         Container(
+                        //                           // titlejGn (I1:448;1:396)
+                        //                           margin: EdgeInsets.fromLTRB(
+                        //                               0 * fem,
+                        //                               0 * fem,
+                        //                               0 * fem,
+                        //                               2 * fem),
+                        //                           child: Text(
+                        //                             e.name.toString(),
+                        //                             style: SafeGoogleFont(
+                        //                               'PT Root UI',
+                        //                               fontSize: 16 * ffem,
+                        //                               fontWeight:
+                        //                                   FontWeight.w700,
+                        //                               height:
+                        //                                   1.2575 * ffem / fem,
+                        //                               color: Color(0xffffffff),
+                        //                             ),
+                        //                           ),
+                        //                         ),
+                        //                         Text(
+                        //                           // genreCRG (I1:448;1:397)
+                        //                           e.category.toString(),
+                        //                           style: SafeGoogleFont(
+                        //                             'PT Root UI',
+                        //                             fontSize: 14 * ffem,
+                        //                             fontWeight: FontWeight.w400,
+                        //                             height: 1.2575 * ffem / fem,
+                        //                             color: Color(0xff637393),
+                        //                           ),
+                        //                         ),
+                        //                       ],
+                        //                     ),
+                        //                   ),
+                        //                 ],
+                        //               ),
+                        //             ),
+                        //           ),
+                        //         ),
+                        //         TextButton(
+                        //           // moviecardXTY (1:449)
+                        //           onPressed: () {
+                        //             Navigator.push(
+                        //               context,
+                        //               MaterialPageRoute(
+                        //                 builder: ((context) => (MovieAbout(
+                        //                       product: e,
+                        //                     ))),
+                        //               ),
+                        //             );
+                        //           },
+                        //           style: TextButton.styleFrom(
+                        //             padding: EdgeInsets.zero,
+                        //           ),
+                        //           child: Container(
+                        //             height: double.infinity,
+                        //             child: Column(
+                        //               crossAxisAlignment:
+                        //                   CrossAxisAlignment.start,
+                        //               children: [
+                        //                 Container(
+                        //                   // cover3gn (I1:449;1:392)
+                        //                   margin: EdgeInsets.fromLTRB(0 * fem,
+                        //                       0 * fem, 0 * fem, 8 * fem),
+                        //                   width: 163 * fem,
+                        //                   height: 230 * fem,
+                        //                   child: ClipRRect(
+                        //                     borderRadius:
+                        //                         BorderRadius.circular(8 * fem),
+                        //                     child: Image.network(
+                        //                       e.avatar.toString(),
+                        //                       fit: BoxFit.cover,
+                        //                     ),
+                        //                   ),
+                        //                 ),
+                        //                 Container(
+                        //                   // infojJi (I1:449;1:395)
+                        //                   child: Column(
+                        //                     crossAxisAlignment:
+                        //                         CrossAxisAlignment.start,
+                        //                     children: [
+                        //                       Container(
+                        //                         // title4Lz (I1:449;1:396)
+                        //                         margin: EdgeInsets.fromLTRB(
+                        //                             0 * fem,
+                        //                             0 * fem,
+                        //                             0 * fem,
+                        //                             2 * fem),
+                        //                         child: Text(
+                        //                           e.name.toString(),
+                        //                           style: SafeGoogleFont(
+                        //                             'PT Root UI',
+                        //                             fontSize: 16 * ffem,
+                        //                             fontWeight: FontWeight.w700,
+                        //                             height: 1.2575 * ffem / fem,
+                        //                             color: Color(0xffffffff),
+                        //                           ),
+                        //                         ),
+                        //                       ),
+                        //                       Text(
+                        //                         // genre6oU (I1:449;1:397)
+                        //                         e.category.toString(),
+                        //                         style: SafeGoogleFont(
+                        //                           'PT Root UI',
+                        //                           fontSize: 14 * ffem,
+                        //                           fontWeight: FontWeight.w400,
+                        //                           height: 1.2575 * ffem / fem,
+                        //                           color: Color(0xff637393),
+                        //                         ),
+                        //                       ),
+                        //                     ],
+                        //                   ),
+                        //                 ),
+                        //               ],
+                        //             ),
+                        //           ),
+                        //         ),
+                        //       ],
+                        //     ),
+                        //   );
+                        // }).toList()
                       ],
                     ),
                   ),

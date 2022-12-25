@@ -3,7 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_project/gui/interfaces/movie-sessions.dart';
-import 'package:test_project/model/product_model.dart';
+import 'package:test_project/product/product_model.dart';
 import 'package:test_project/utils.dart';
 
 class MovieAbout extends StatelessWidget {
@@ -320,7 +320,7 @@ class MovieAbout extends StatelessWidget {
                                       0 * fem, 0 * fem, 64 * fem, 0 * fem),
                                   child: Text(
                                     'Cast',
-                                    style: (
+                                    style: SafeGoogleFont(
                                       'PT Root UI',
                                       decoration: TextDecoration.none,
                                       fontSize: 14 * ffem,
