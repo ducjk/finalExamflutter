@@ -320,7 +320,7 @@ class MovieAbout extends StatelessWidget {
                                       0 * fem, 0 * fem, 64 * fem, 0 * fem),
                                   child: Text(
                                     'Cast',
-                                    style: (
+                                    style: SafeGoogleFont(
                                       'PT Root UI',
                                       decoration: TextDecoration.none,
                                       fontSize: 14 * ffem,
