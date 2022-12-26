@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/scheduler.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:test_project/gui/interfaces/home-login.dart';
+import 'package:test_project/gui/interfaces/ticket.dart';
 import 'package:test_project/utils.dart';
 
 class Pay extends StatelessWidget {
@@ -876,7 +879,13 @@ class Pay extends StatelessWidget {
                           ),
                           TextButton(
                             // buttonhVL (I21:3032;21:2850)
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Ticket()),
+                              );
+                            },
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,
                             ),

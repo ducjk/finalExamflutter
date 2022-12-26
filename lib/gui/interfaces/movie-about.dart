@@ -631,7 +631,7 @@ class MovieAbout extends StatelessWidget {
                                                       0 * fem,
                                                       8 * fem),
                                                   child: Text(
-                                                    'The Batman',
+                                                    product.name ?? "",
                                                     textAlign: TextAlign.center,
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
