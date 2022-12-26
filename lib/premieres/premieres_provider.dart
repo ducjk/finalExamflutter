@@ -15,12 +15,25 @@ class PremiereProvider extends ChangeNotifier {
     var jsonString = rs.body;
     var jsonObject = jsonDecode(jsonString) as List;
     list = jsonObject.map((e) {
+      int rownumber = e['rowNumber'];
+      int seatOfRow = e['seatOfRow'];
+      List<String> listRow = [];
+      List<String> listSeatOfRow = [];
+      for (int i = 0; i < rownumber; i++) {
+        listRow.add(String.fromCharCode(i + 65));
+      }
+      for (int i = 0; i < seatOfRow; i++) {
+        listSeatOfRow.add(i.toString());
+      }
+
       return PremiereModel(
           id: e['id'],
           productId: e['productid'],
           time: e['time'],
           place: e['place'],
-          date: e['date']);
+          date: e['date'],
+          listRow: listRow,
+          listSeatOfRow: listSeatOfRow);
     }).toList();
 
     notifyListeners();

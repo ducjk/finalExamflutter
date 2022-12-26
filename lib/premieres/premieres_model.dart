@@ -4,5 +4,14 @@ class PremiereModel {
   String? time;
   String? place;
   String? date;
-  PremiereModel({this.id, this.productId, this.time, this.place, this.date});
+  List<String>? listRow;
+  List<String>? listSeatOfRow;
+  PremiereModel(
+      {this.id,
+      this.productId,
+      this.time,
+      this.place,
+      this.date,
+      this.listRow,
+      this.listSeatOfRow});
 }

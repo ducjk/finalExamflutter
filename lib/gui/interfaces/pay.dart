@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_project/utils.dart';
 
-class Scene extends StatelessWidget {
+class Pay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 375;
@@ -21,6 +21,115 @@ class Scene extends StatelessWidget {
         ),
         child: Stack(
           children: [
+            Positioned(
+              // fixed2g2 (12:2965)
+              left: 0 * fem,
+              top: 0 * fem,
+              child: Container(
+                padding:
+                    EdgeInsets.fromLTRB(0 * fem, 17.17 * fem, 0 * fem, 0 * fem),
+                width: 375 * fem,
+                height: 168 * fem,
+                decoration: BoxDecoration(
+                  color: Color(0xb21e283d),
+                ),
+                child: ClipRect(
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 20 * fem,
+                      sigmaY: 20 * fem,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          // topbarwTY (12:2967)
+                          padding: EdgeInsets.fromLTRB(
+                              16 * fem, 12 * fem, 52 * fem, 0 * fem),
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Color(0xb21e283d),
+                          ),
+                          child: ClipRect(
+                            child: BackdropFilter(
+                              filter: ImageFilter.blur(
+                                sigmaX: 20 * fem,
+                                sigmaY: 20 * fem,
+                              ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    // glyphBcn (I12:2967;4:221)
+                                    margin: EdgeInsets.fromLTRB(
+                                        0 * fem, 0 * fem, 75 * fem, 72 * fem),
+                                    child: TextButton(
+                                      onPressed: () {},
+                                      style: TextButton.styleFrom(
+                                        padding: EdgeInsets.zero,
+                                      ),
+                                      child: Container(
+                                        width: 40 * fem,
+                                        height: 40 * fem,
+                                        child: Icon(
+                                          Icons.arrow_back_ios,
+                                          size: 40 * fem,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    // titlewrapgJe (I12:2967;4:222)
+                                    margin: EdgeInsets.fromLTRB(
+                                        0 * fem, 0 * fem, 55 * fem, 50 * fem),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          // screentitlePTx (I12:2967;4:223)
+                                          margin: EdgeInsets.fromLTRB(0 * fem,
+                                              0 * fem, 0 * fem, 8 * fem),
+                                          child: Text(
+                                            'Pay for tickets',
+                                            textAlign: TextAlign.center,
+                                            style: SafeGoogleFont(
+                                              'PT Root UI',
+                                              decoration: TextDecoration.none,
+                                              fontSize: 18 * ffem,
+                                              fontWeight: FontWeight.w700,
+                                              height: 1 * ffem / fem,
+                                              color: Color(0xffffffff),
+                                            ),
+                                          ),
+                                        ),
+                                        Text(
+                                          // screensubtitleFFG (I12:2967;4:224)
+                                          'Eurasia Cinema7',
+                                          textAlign: TextAlign.center,
+                                          style: SafeGoogleFont(
+                                            'PT Root UI',
+                                            decoration: TextDecoration.none,
+                                            fontSize: 14 * ffem,
+                                            fontWeight: FontWeight.w400,
+                                            height: 1 * ffem / fem,
+                                            color: Color(0xff637393),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
             Positioned(
               // ticketcux (12:3212)
               left: 0 * fem,
@@ -64,6 +173,7 @@ class Scene extends StatelessWidget {
                                     'The Batman',
                                     style: SafeGoogleFont(
                                       'PT Root UI',
+                                      decoration: TextDecoration.none,
                                       fontSize: 18 * ffem,
                                       fontWeight: FontWeight.w700,
                                       height: 1.3333333333 * ffem / fem,
@@ -97,6 +207,8 @@ class Scene extends StatelessWidget {
                                                 'Cinema',
                                                 style: SafeGoogleFont(
                                                   'PT Root UI',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 14 * ffem,
                                                   fontWeight: FontWeight.w400,
                                                   height:
@@ -123,6 +235,8 @@ class Scene extends StatelessWidget {
                                                       'Eurasia Cinema7',
                                                       style: SafeGoogleFont(
                                                         'PT Root UI',
+                                                        decoration:
+                                                            TextDecoration.none,
                                                         fontSize: 14 * ffem,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -139,6 +253,8 @@ class Scene extends StatelessWidget {
                                                     'ул. Петрова, д.24, ТЦ "Евразия"',
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
+                                                      decoration:
+                                                          TextDecoration.none,
                                                       fontSize: 14 * ffem,
                                                       fontWeight:
                                                           FontWeight.w400,
@@ -186,6 +302,8 @@ class Scene extends StatelessWidget {
                                                       'Date',
                                                       style: SafeGoogleFont(
                                                         'PT Root UI',
+                                                        decoration:
+                                                            TextDecoration.none,
                                                         fontSize: 14 * ffem,
                                                         fontWeight:
                                                             FontWeight.w400,
@@ -202,6 +320,8 @@ class Scene extends StatelessWidget {
                                                     '6 April 2022, 14:40',
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
+                                                      decoration:
+                                                          TextDecoration.none,
                                                       fontSize: 14 * ffem,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -240,6 +360,8 @@ class Scene extends StatelessWidget {
                                                       'Hall',
                                                       style: SafeGoogleFont(
                                                         'PT Root UI',
+                                                        decoration:
+                                                            TextDecoration.none,
                                                         fontSize: 14 * ffem,
                                                         fontWeight:
                                                             FontWeight.w400,
@@ -256,6 +378,8 @@ class Scene extends StatelessWidget {
                                                     '6th',
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
+                                                      decoration:
+                                                          TextDecoration.none,
                                                       fontSize: 14 * ffem,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -294,6 +418,8 @@ class Scene extends StatelessWidget {
                                                       'Seats',
                                                       style: SafeGoogleFont(
                                                         'PT Root UI',
+                                                        decoration:
+                                                            TextDecoration.none,
                                                         fontSize: 14 * ffem,
                                                         fontWeight:
                                                             FontWeight.w400,
@@ -310,6 +436,8 @@ class Scene extends StatelessWidget {
                                                     '7 row (7, 8)',
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
+                                                      decoration:
+                                                          TextDecoration.none,
                                                       fontSize: 14 * ffem,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -367,6 +495,7 @@ class Scene extends StatelessWidget {
                                           '1 x Adult',
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 16 * ffem,
                                             fontWeight: FontWeight.w500,
                                             height: 1.125 * ffem / fem,
@@ -379,6 +508,7 @@ class Scene extends StatelessWidget {
                                         '2200 ₸',
                                         style: SafeGoogleFont(
                                           'PT Root UI',
+                                          decoration: TextDecoration.none,
                                           fontSize: 16 * ffem,
                                           fontWeight: FontWeight.w500,
                                           height: 1.125 * ffem / fem,
@@ -408,6 +538,7 @@ class Scene extends StatelessWidget {
                                           '1 x Child',
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 16 * ffem,
                                             fontWeight: FontWeight.w500,
                                             height: 1.125 * ffem / fem,
@@ -420,6 +551,7 @@ class Scene extends StatelessWidget {
                                         '1000 ₸',
                                         style: SafeGoogleFont(
                                           'PT Root UI',
+                                          decoration: TextDecoration.none,
                                           fontSize: 16 * ffem,
                                           fontWeight: FontWeight.w500,
                                           height: 1.125 * ffem / fem,
@@ -449,6 +581,7 @@ class Scene extends StatelessWidget {
                                           '2 total',
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 16 * ffem,
                                             fontWeight: FontWeight.w700,
                                             height: 1.125 * ffem / fem,
@@ -461,6 +594,7 @@ class Scene extends StatelessWidget {
                                         '3200 ₸',
                                         style: SafeGoogleFont(
                                           'PT Root UI',
+                                          decoration: TextDecoration.none,
                                           fontSize: 16 * ffem,
                                           fontWeight: FontWeight.w700,
                                           height: 1.125 * ffem / fem,
@@ -483,19 +617,8 @@ class Scene extends StatelessWidget {
                       width: double.infinity,
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Container(
-                            // ellipse3rwL (12:3250)
-                            margin: EdgeInsets.fromLTRB(
-                                0 * fem, 0 * fem, 8.41 * fem, 0 * fem),
-                            width: 20 * fem,
-                            height: 40 * fem,
-                            child: Image.asset(
-                              'assets/interfaces/images/ellipse-3-MeS.png',
-                              width: 20 * fem,
-                              height: 40 * fem,
-                            ),
-                          ),
                           Container(
                             // ellipse5xzN (12:3251)
                             margin: EdgeInsets.fromLTRB(
@@ -672,18 +795,6 @@ class Scene extends StatelessWidget {
                               color: Color(0xff1a2232),
                             ),
                           ),
-                          Container(
-                            // ellipse4bmk (12:3267)
-                            margin: EdgeInsets.fromLTRB(
-                                0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                            width: 20 * fem,
-                            height: 40 * fem,
-                            child: Image.asset(
-                              'assets/interfaces/images/ellipse-4.png',
-                              width: 20 * fem,
-                              height: 40 * fem,
-                            ),
-                          ),
                         ],
                       ),
                     ),
@@ -725,6 +836,7 @@ class Scene extends StatelessWidget {
                                           'Phone number',
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 16 * ffem,
                                             fontWeight: FontWeight.w500,
                                             height: 1.5 * ffem / fem,
@@ -746,6 +858,7 @@ class Scene extends StatelessWidget {
                                           '8 (707) 000 00 00',
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 16 * ffem,
                                             fontWeight: FontWeight.w500,
                                             height: 1.5 * ffem / fem,
@@ -793,6 +906,7 @@ class Scene extends StatelessWidget {
                                   textAlign: TextAlign.center,
                                   style: SafeGoogleFont(
                                     'PT Root UI',
+                                    decoration: TextDecoration.none,
                                     fontSize: 18 * ffem,
                                     fontWeight: FontWeight.w700,
                                     height: 1.2575 * ffem / fem,
@@ -806,185 +920,6 @@ class Scene extends StatelessWidget {
                       ),
                     ),
                   ],
-                ),
-              ),
-            ),
-            Positioned(
-              // fixed2g2 (12:2965)
-              left: 0 * fem,
-              top: 0 * fem,
-              child: Container(
-                padding:
-                    EdgeInsets.fromLTRB(0 * fem, 17.17 * fem, 0 * fem, 0 * fem),
-                width: 375 * fem,
-                height: 168 * fem,
-                decoration: BoxDecoration(
-                  color: Color(0xb21e283d),
-                ),
-                child: ClipRect(
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(
-                      sigmaX: 20 * fem,
-                      sigmaY: 20 * fem,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          // statusbar4Mp (12:2966)
-                          margin: EdgeInsets.fromLTRB(
-                              33.27 * fem, 0 * fem, 14.34 * fem, 15.33 * fem),
-                          width: double.infinity,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                // timeYnn (I12:2966;1:70)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 232.23 * fem, 0.41 * fem),
-                                width: 28.5 * fem,
-                                height: 11.09 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/time-4KC.png',
-                                  width: 28.5 * fem,
-                                  height: 11.09 * fem,
-                                ),
-                              ),
-                              Container(
-                                // cellularconnectiondpE (I12:2966;1:79)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0.17 * fem, 5 * fem, 0 * fem),
-                                width: 17 * fem,
-                                height: 10.67 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/cellular-connection-M9k.png',
-                                  width: 17 * fem,
-                                  height: 10.67 * fem,
-                                ),
-                              ),
-                              Container(
-                                // wifiLie (I12:2966;1:75)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 5 * fem, 0.17 * fem),
-                                width: 15.33 * fem,
-                                height: 11 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/wifi-XwQ.png',
-                                  width: 15.33 * fem,
-                                  height: 11 * fem,
-                                ),
-                              ),
-                              Container(
-                                // battery48r (I12:2966;1:71)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0.17 * fem, 0 * fem, 0 * fem),
-                                width: 24.33 * fem,
-                                height: 11.33 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/battery-9P8.png',
-                                  width: 24.33 * fem,
-                                  height: 11.33 * fem,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          // topbarwTY (12:2967)
-                          padding: EdgeInsets.fromLTRB(
-                              16 * fem, 12 * fem, 52 * fem, 0 * fem),
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: Color(0xb21e283d),
-                          ),
-                          child: ClipRect(
-                            child: BackdropFilter(
-                              filter: ImageFilter.blur(
-                                sigmaX: 20 * fem,
-                                sigmaY: 20 * fem,
-                              ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    // glyphBcn (I12:2967;4:221)
-                                    margin: EdgeInsets.fromLTRB(
-                                        0 * fem, 0 * fem, 75 * fem, 72 * fem),
-                                    child: TextButton(
-                                      onPressed: () {},
-                                      style: TextButton.styleFrom(
-                                        padding: EdgeInsets.zero,
-                                      ),
-                                      child: Container(
-                                        width: 40 * fem,
-                                        height: 40 * fem,
-                                        child: Image.asset(
-                                          'assets/interfaces/images/glyph-e7C.png',
-                                          width: 40 * fem,
-                                          height: 40 * fem,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    // titlewrapgJe (I12:2967;4:222)
-                                    margin: EdgeInsets.fromLTRB(
-                                        0 * fem, 0 * fem, 55 * fem, 50 * fem),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          // screentitlePTx (I12:2967;4:223)
-                                          margin: EdgeInsets.fromLTRB(0 * fem,
-                                              0 * fem, 0 * fem, 8 * fem),
-                                          child: Text(
-                                            'Pay for tickets',
-                                            textAlign: TextAlign.center,
-                                            style: SafeGoogleFont(
-                                              'PT Root UI',
-                                              fontSize: 18 * ffem,
-                                              fontWeight: FontWeight.w700,
-                                              height: 1 * ffem / fem,
-                                              color: Color(0xffffffff),
-                                            ),
-                                          ),
-                                        ),
-                                        Text(
-                                          // screensubtitleFFG (I12:2967;4:224)
-                                          'Eurasia Cinema7',
-                                          textAlign: TextAlign.center,
-                                          style: SafeGoogleFont(
-                                            'PT Root UI',
-                                            fontSize: 14 * ffem,
-                                            fontWeight: FontWeight.w400,
-                                            height: 1 * ffem / fem,
-                                            color: Color(0xff637393),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    // glyphkC2 (I12:2967;4:225)
-                                    margin: EdgeInsets.fromLTRB(
-                                        0 * fem, 88 * fem, 0 * fem, 0 * fem),
-                                    width: 24 * fem,
-                                    height: 24 * fem,
-                                    child: Image.asset(
-                                      'assets/interfaces/images/glyph-wxe.png',
-                                      width: 24 * fem,
-                                      height: 24 * fem,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                 ),
               ),
             ),
