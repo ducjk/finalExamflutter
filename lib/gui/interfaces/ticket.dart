@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_project/utils.dart';
 
-class Scene extends StatelessWidget {
+class Ticket extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 375;
@@ -53,11 +53,11 @@ class Scene extends StatelessWidget {
                                     0 * fem, 0 * fem, 232.23 * fem, 0.41 * fem),
                                 width: 28.5 * fem,
                                 height: 11.09 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/time-TLE.png',
-                                  width: 28.5 * fem,
-                                  height: 11.09 * fem,
-                                ),
+                                // child: Image.asset(
+                                //   'assets/interfaces/images/time-TLE.png',
+                                //   width: 28.5 * fem,
+                                //   height: 11.09 * fem,
+                                // ),
                               ),
                               Container(
                                 // cellularconnectionmWr (I12:3514;1:79)
@@ -65,11 +65,11 @@ class Scene extends StatelessWidget {
                                     0 * fem, 0.17 * fem, 5 * fem, 0 * fem),
                                 width: 17 * fem,
                                 height: 10.67 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/cellular-connection-pgr.png',
-                                  width: 17 * fem,
-                                  height: 10.67 * fem,
-                                ),
+                                // child: Image.asset(
+                                //   'assets/interfaces/images/cellular-connection-pgr.png',
+                                //   width: 17 * fem,
+                                //   height: 10.67 * fem,
+                                // ),
                               ),
                               Container(
                                 // wifi3jG (I12:3514;1:75)
@@ -89,11 +89,11 @@ class Scene extends StatelessWidget {
                                     0 * fem, 0.17 * fem, 0 * fem, 0 * fem),
                                 width: 24.33 * fem,
                                 height: 11.33 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/battery-VAi.png',
-                                  width: 24.33 * fem,
-                                  height: 11.33 * fem,
-                                ),
+                                // child: Image.asset(
+                                //   'assets/interfaces/images/battery-VAi.png',
+                                //   width: 24.33 * fem,
+                                //   height: 11.33 * fem,
+                                // ),
                               ),
                             ],
                           ),
@@ -126,11 +126,11 @@ class Scene extends StatelessWidget {
                                         0 * fem, 118.5 * fem, 100 * fem),
                                     width: 24 * fem,
                                     height: 24 * fem,
-                                    child: Image.asset(
-                                      'assets/interfaces/images/glyph-Nh8.png',
-                                      width: 24 * fem,
-                                      height: 24 * fem,
-                                    ),
+                                    // child: Image.asset(
+                                    //   'assets/interfaces/images/glyph-Nh8.png',
+                                    //   width: 24 * fem,
+                                    //   height: 24 * fem,
+                                    // ),
                                   ),
                                   Container(
                                     // titlewrapVdC (I12:3515;4:196)
@@ -183,11 +183,11 @@ class Scene extends StatelessWidget {
                                       child: Container(
                                         width: 40 * fem,
                                         height: 40 * fem,
-                                        child: Image.asset(
-                                          'assets/interfaces/images/glyph-LnW.png',
-                                          width: 40 * fem,
-                                          height: 40 * fem,
-                                        ),
+                                        // child: Image.asset(
+                                        //   'assets/interfaces/images/glyph-LnW.png',
+                                        //   width: 40 * fem,
+                                        //   height: 40 * fem,
+                                        // ),
                                       ),
                                     ),
                                   ),
@@ -248,7 +248,7 @@ class Scene extends StatelessWidget {
                               width: 240 * fem,
                               height: 240 * fem,
                               child: Image.asset(
-                                'assets/interfaces/images/code.png',
+                                'assets/icon/code.png',
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -281,11 +281,11 @@ class Scene extends StatelessWidget {
                               0 * fem, 0 * fem, 8.41 * fem, 0 * fem),
                           width: 20 * fem,
                           height: 40 * fem,
-                          child: Image.asset(
-                            'assets/interfaces/images/ellipse-3.png',
-                            width: 20 * fem,
-                            height: 40 * fem,
-                          ),
+                          // child: Image.asset(
+                          //   'assets/interfaces/images/ellipse-3.png',
+                          //   width: 20 * fem,
+                          //   height: 40 * fem,
+                          // ),
                         ),
                         Container(
                           // ellipse5JH8 (12:3473)
@@ -469,11 +469,11 @@ class Scene extends StatelessWidget {
                               0 * fem, 0 * fem, 0 * fem, 0 * fem),
                           width: 20 * fem,
                           height: 40 * fem,
-                          child: Image.asset(
-                            'assets/interfaces/images/ellipse-4-r3c.png',
-                            width: 20 * fem,
-                            height: 40 * fem,
-                          ),
+                          //   child: Image.asset(
+                          //     '',
+                          //     width: 20 * fem,
+                          //     height: 40 * fem,
+                          //   ),
                         ),
                       ],
                     ),
@@ -862,7 +862,7 @@ class Scene extends StatelessWidget {
                                       width: 19 * fem,
                                       height: 17 * fem,
                                       child: Image.asset(
-                                        'assets/interfaces/images/forward-arrow.png',
+                                        'assets/icon/Vector.png',
                                         width: 19 * fem,
                                         height: 17 * fem,
                                       ),
