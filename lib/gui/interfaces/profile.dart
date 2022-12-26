@@ -54,11 +54,11 @@ class Profile extends StatelessWidget {
                                   0 * fem, 0 * fem, 232.23 * fem, 0.41 * fem),
                               width: 28.5 * fem,
                               height: 11.09 * fem,
-                              child: Image.asset(
-                                'assets/interfaces/images/time-GgA.png',
-                                width: 28.5 * fem,
-                                height: 11.09 * fem,
-                              ),
+                              // child: Image.asset(
+                              //   'assets/interfaces/images/time-GgA.png',
+                              //   width: 28.5 * fem,
+                              //   height: 11.09 * fem,
+                              // ),
                             ),
                             Container(
                               // cellularconnectionNE6 (I21:2442;1:79)
@@ -66,11 +66,11 @@ class Profile extends StatelessWidget {
                                   0 * fem, 0.17 * fem, 5 * fem, 0 * fem),
                               width: 17 * fem,
                               height: 10.67 * fem,
-                              child: Image.asset(
-                                'assets/interfaces/images/cellular-connection-vfk.png',
-                                width: 17 * fem,
-                                height: 10.67 * fem,
-                              ),
+                              // child: Image.asset(
+                              //   'assets/interfaces/images/cellular-connection-vfk.png',
+                              //   width: 17 * fem,
+                              //   height: 10.67 * fem,
+                              // ),
                             ),
                             Container(
                               // wifiRTG (I21:2442;1:75)
@@ -78,11 +78,11 @@ class Profile extends StatelessWidget {
                                   0 * fem, 0 * fem, 5 * fem, 0.17 * fem),
                               width: 15.33 * fem,
                               height: 11 * fem,
-                              child: Image.asset(
-                                'assets/interfaces/images/wifi-hx6.png',
-                                width: 15.33 * fem,
-                                height: 11 * fem,
-                              ),
+                              // child: Image.asset(
+                              //   'assets/interfaces/images/wifi-hx6.png',
+                              //   width: 15.33 * fem,
+                              //   height: 11 * fem,
+                              // ),
                             ),
                             Container(
                               // batterygtz (I21:2442;1:71)
@@ -90,11 +90,11 @@ class Profile extends StatelessWidget {
                                   0 * fem, 0.17 * fem, 0 * fem, 0 * fem),
                               width: 24.33 * fem,
                               height: 11.33 * fem,
-                              child: Image.asset(
-                                'assets/interfaces/images/battery-cNe.png',
-                                width: 24.33 * fem,
-                                height: 11.33 * fem,
-                              ),
+                              // child: Image.asset(
+                              //   'assets/interfaces/images/battery-cNe.png',
+                              //   width: 24.33 * fem,
+                              //   height: 11.33 * fem,
+                              // ),
                             ),
                           ],
                         ),
@@ -126,7 +126,7 @@ class Profile extends StatelessWidget {
                                       width: 40 * fem,
                                       height: 40 * fem,
                                       child: Image.asset(
-                                        'assets/interfaces/images/glyph-fLv.png',
+                                        'assets/icon/back.png',
                                         width: 40 * fem,
                                         height: 40 * fem,
                                       ),
@@ -191,7 +191,7 @@ class Profile extends StatelessWidget {
                                       width: 40 * fem,
                                       height: 40 * fem,
                                       child: Image.asset(
-                                        'assets/interfaces/images/glyph-V2i.png',
+                                        'assets/icon/logout.png',
                                         width: 40 * fem,
                                         height: 40 * fem,
                                       ),
@@ -265,7 +265,7 @@ class Profile extends StatelessWidget {
                                     width: 34.67 * fem,
                                     height: 26.67 * fem,
                                     child: Image.asset(
-                                      'assets/interfaces/images/visa-CZp.png',
+                                      'assets/icon/visa.png',
                                       width: 34.67 * fem,
                                       height: 26.67 * fem,
                                     ),

@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:test_project/gui/interfaces/home-login.dart';
 import 'package:test_project/gui/interfaces/movie-about.dart';
+import 'package:test_project/gui/interfaces/profile.dart';
 import 'package:test_project/product/product_model.dart';
 import 'package:test_project/product/product_provider.dart';
 import 'package:test_project/product/user_model.dart';
@@ -472,7 +473,12 @@ class HomePage extends StatelessWidget {
       BuildContext context, double fem, double ffem, String? name) {
     return TextButton(
       // buttonu5U (1:623)
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Profile()),
+        );
+      },
       style: TextButton.styleFrom(
         padding: EdgeInsets.zero,
       ),
