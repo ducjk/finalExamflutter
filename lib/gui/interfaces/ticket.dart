@@ -38,74 +38,12 @@ class Ticket extends StatelessWidget {
                   child: Stack(
                     children: [
                       Positioned(
-                        // statusbarZfg (12:3514)
-                        left: 33.2670898438 * fem,
-                        top: 17.1674804688 * fem,
-                        child: Container(
-                          width: 327.39 * fem,
-                          height: 11.5 * fem,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                // timeTm4 (I12:3514;1:70)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 232.23 * fem, 0.41 * fem),
-                                width: 28.5 * fem,
-                                height: 11.09 * fem,
-                                // child: Image.asset(
-                                //   'assets/interfaces/images/time-TLE.png',
-                                //   width: 28.5 * fem,
-                                //   height: 11.09 * fem,
-                                // ),
-                              ),
-                              Container(
-                                // cellularconnectionmWr (I12:3514;1:79)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0.17 * fem, 5 * fem, 0 * fem),
-                                width: 17 * fem,
-                                height: 10.67 * fem,
-                                // child: Image.asset(
-                                //   'assets/interfaces/images/cellular-connection-pgr.png',
-                                //   width: 17 * fem,
-                                //   height: 10.67 * fem,
-                                // ),
-                              ),
-                              Container(
-                                // wifi3jG (I12:3514;1:75)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 5 * fem, 0.17 * fem),
-                                width: 15.33 * fem,
-                                height: 11 * fem,
-                                child: Image.asset(
-                                  'assets/interfaces/images/wifi-6Je.png',
-                                  width: 15.33 * fem,
-                                  height: 11 * fem,
-                                ),
-                              ),
-                              Container(
-                                // batteryMzr (I12:3514;1:71)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0.17 * fem, 0 * fem, 0 * fem),
-                                width: 24.33 * fem,
-                                height: 11.33 * fem,
-                                // child: Image.asset(
-                                //   'assets/interfaces/images/battery-VAi.png',
-                                //   width: 24.33 * fem,
-                                //   height: 11.33 * fem,
-                                // ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Positioned(
                         // topbarsCW (12:3515)
                         left: 0 * fem,
                         top: 0 * fem,
                         child: Container(
                           padding: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 16 * fem, 0 * fem),
+                              10 * fem, 20 * fem, 10 * fem, 0 * fem),
                           width: 379 * fem,
                           height: 124 * fem,
                           decoration: BoxDecoration(
@@ -126,16 +64,15 @@ class Ticket extends StatelessWidget {
                                         0 * fem, 118.5 * fem, 100 * fem),
                                     width: 24 * fem,
                                     height: 24 * fem,
-                                    // child: Image.asset(
-                                    //   'assets/interfaces/images/glyph-Nh8.png',
-                                    //   width: 24 * fem,
-                                    //   height: 24 * fem,
+                                    // child: Icon(
+                                    //   Icons.arrow_back_ios,
+                                    //   size: 40 * fem,
                                     // ),
                                   ),
                                   Container(
                                     // titlewrapVdC (I12:3515;4:196)
                                     margin: EdgeInsets.fromLTRB(
-                                        0 * fem, 0 * fem, 82.5 * fem, 1 * fem),
+                                        0 * fem, 0 * fem, 72.5 * fem, 1 * fem),
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
@@ -149,6 +86,7 @@ class Ticket extends StatelessWidget {
                                             textAlign: TextAlign.center,
                                             style: SafeGoogleFont(
                                               'PT Root UI',
+                                              decoration: TextDecoration.none,
                                               fontSize: 18 * ffem,
                                               fontWeight: FontWeight.w700,
                                               height: 1 * ffem / fem,
@@ -162,6 +100,7 @@ class Ticket extends StatelessWidget {
                                           textAlign: TextAlign.center,
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 14 * ffem,
                                             fontWeight: FontWeight.w400,
                                             height: 1 * ffem / fem,
@@ -181,13 +120,12 @@ class Ticket extends StatelessWidget {
                                         padding: EdgeInsets.zero,
                                       ),
                                       child: Container(
-                                        width: 40 * fem,
-                                        height: 40 * fem,
-                                        // child: Image.asset(
-                                        //   'assets/interfaces/images/glyph-LnW.png',
-                                        //   width: 40 * fem,
-                                        //   height: 40 * fem,
-                                        // ),
+                                        width: 32 * fem,
+                                        height: 32 * fem,
+                                        child: Icon(
+                                          Icons.close,
+                                          size: 32 * fem,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -248,7 +186,7 @@ class Ticket extends StatelessWidget {
                               width: 240 * fem,
                               height: 240 * fem,
                               child: Image.asset(
-                                'assets/icon/code.png',
+                                'assets/interfaces/images/code.png',
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -260,6 +198,7 @@ class Ticket extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: SafeGoogleFont(
                             'IBM Plex Sans',
+                            decoration: TextDecoration.none,
                             fontSize: 14 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.3 * ffem / fem,
@@ -274,19 +213,8 @@ class Ticket extends StatelessWidget {
                     width: double.infinity,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          // ellipse3c9Q (12:3472)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 8.41 * fem, 0 * fem),
-                          width: 20 * fem,
-                          height: 40 * fem,
-                          // child: Image.asset(
-                          //   'assets/interfaces/images/ellipse-3.png',
-                          //   width: 20 * fem,
-                          //   height: 40 * fem,
-                          // ),
-                        ),
                         Container(
                           // ellipse5JH8 (12:3473)
                           margin: EdgeInsets.fromLTRB(
@@ -463,18 +391,6 @@ class Ticket extends StatelessWidget {
                             color: Color(0xff1a2232),
                           ),
                         ),
-                        Container(
-                          // ellipse4A3k (12:3489)
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                          width: 20 * fem,
-                          height: 40 * fem,
-                          //   child: Image.asset(
-                          //     '',
-                          //     width: 20 * fem,
-                          //     height: 40 * fem,
-                          //   ),
-                        ),
                       ],
                     ),
                   ),
@@ -502,6 +418,7 @@ class Ticket extends StatelessWidget {
                                   'The Batman',
                                   style: SafeGoogleFont(
                                     'PT Root UI',
+                                    decoration: TextDecoration.none,
                                     fontSize: 18 * ffem,
                                     fontWeight: FontWeight.w700,
                                     height: 1.3333333333 * ffem / fem,
@@ -531,6 +448,7 @@ class Ticket extends StatelessWidget {
                                               'Cinema',
                                               style: SafeGoogleFont(
                                                 'PT Root UI',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 14 * ffem,
                                                 fontWeight: FontWeight.w400,
                                                 height:
@@ -557,6 +475,8 @@ class Ticket extends StatelessWidget {
                                                     'Eurasia Cinema7',
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
+                                                      decoration:
+                                                          TextDecoration.none,
                                                       fontSize: 14 * ffem,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -572,6 +492,8 @@ class Ticket extends StatelessWidget {
                                                   'ул. Петрова, д.24, ТЦ "Евразия"',
                                                   style: SafeGoogleFont(
                                                     'PT Root UI',
+                                                    decoration:
+                                                        TextDecoration.none,
                                                     fontSize: 14 * ffem,
                                                     fontWeight: FontWeight.w400,
                                                     height: 1.2857142857 *
@@ -615,6 +537,8 @@ class Ticket extends StatelessWidget {
                                                     'Date',
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
+                                                      decoration:
+                                                          TextDecoration.none,
                                                       fontSize: 14 * ffem,
                                                       fontWeight:
                                                           FontWeight.w400,
@@ -630,6 +554,8 @@ class Ticket extends StatelessWidget {
                                                   '6 April 2022, 14:40',
                                                   style: SafeGoogleFont(
                                                     'PT Root UI',
+                                                    decoration:
+                                                        TextDecoration.none,
                                                     fontSize: 14 * ffem,
                                                     fontWeight: FontWeight.w500,
                                                     height: 1.2857142857 *
@@ -664,6 +590,8 @@ class Ticket extends StatelessWidget {
                                                     'Hall',
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
+                                                      decoration:
+                                                          TextDecoration.none,
                                                       fontSize: 14 * ffem,
                                                       fontWeight:
                                                           FontWeight.w400,
@@ -679,6 +607,8 @@ class Ticket extends StatelessWidget {
                                                   '6th',
                                                   style: SafeGoogleFont(
                                                     'PT Root UI',
+                                                    decoration:
+                                                        TextDecoration.none,
                                                     fontSize: 14 * ffem,
                                                     fontWeight: FontWeight.w500,
                                                     height: 1.2857142857 *
@@ -713,6 +643,8 @@ class Ticket extends StatelessWidget {
                                                     'Seats',
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
+                                                      decoration:
+                                                          TextDecoration.none,
                                                       fontSize: 14 * ffem,
                                                       fontWeight:
                                                           FontWeight.w400,
@@ -728,6 +660,8 @@ class Ticket extends StatelessWidget {
                                                   '7 row (7, 8)',
                                                   style: SafeGoogleFont(
                                                     'PT Root UI',
+                                                    decoration:
+                                                        TextDecoration.none,
                                                     fontSize: 14 * ffem,
                                                     fontWeight: FontWeight.w500,
                                                     height: 1.2857142857 *
@@ -762,6 +696,8 @@ class Ticket extends StatelessWidget {
                                                     'Cost',
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
+                                                      decoration:
+                                                          TextDecoration.none,
                                                       fontSize: 14 * ffem,
                                                       fontWeight:
                                                           FontWeight.w400,
@@ -777,6 +713,8 @@ class Ticket extends StatelessWidget {
                                                   '3200 ₸ (paid)',
                                                   style: SafeGoogleFont(
                                                     'PT Root UI',
+                                                    decoration:
+                                                        TextDecoration.none,
                                                     fontSize: 14 * ffem,
                                                     fontWeight: FontWeight.w500,
                                                     height: 1.2857142857 *
@@ -820,6 +758,7 @@ class Ticket extends StatelessWidget {
                                     textAlign: TextAlign.center,
                                     style: SafeGoogleFont(
                                       'PT Root UI',
+                                      decoration: TextDecoration.none,
                                       fontSize: 18 * ffem,
                                       fontWeight: FontWeight.w700,
                                       height: 1.2575 * ffem / fem,
@@ -862,7 +801,7 @@ class Ticket extends StatelessWidget {
                                       width: 19 * fem,
                                       height: 17 * fem,
                                       child: Image.asset(
-                                        'assets/icon/Vector.png',
+                                        'assets/icon/arrowback.png',
                                         width: 19 * fem,
                                         height: 17 * fem,
                                       ),
@@ -873,6 +812,7 @@ class Ticket extends StatelessWidget {
                                       textAlign: TextAlign.center,
                                       style: SafeGoogleFont(
                                         'PT Root UI',
+                                        decoration: TextDecoration.none,
                                         fontSize: 18 * ffem,
                                         fontWeight: FontWeight.w700,
                                         height: 1.2575 * ffem / fem,
