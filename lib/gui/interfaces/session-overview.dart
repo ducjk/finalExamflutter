@@ -193,7 +193,7 @@ class SessionOverView extends StatelessWidget {
                                     margin: EdgeInsets.fromLTRB(
                                         0 * fem, 0.5 * fem, 0 * fem, 0 * fem),
                                     child: Text(
-                                      'April, 14',
+                                      'April, 18',
                                       style: SafeGoogleFont(
                                         'PT Root UI',
                                         decoration: TextDecoration.none,
@@ -236,7 +236,7 @@ class SessionOverView extends StatelessWidget {
                                     margin: EdgeInsets.fromLTRB(
                                         0 * fem, 1 * fem, 0 * fem, 0 * fem),
                                     child: Text(
-                                      '15:10',
+                                      premiere.time ?? "",
                                       style: SafeGoogleFont(
                                         'PT Root UI',
                                         decoration: TextDecoration.none,

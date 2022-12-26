@@ -23,7 +23,10 @@ class ProductProvider extends ChangeNotifier {
           certificate: e['certificate'],
           runtime: e['runtime'],
           release: e['release'],
-          cast: e['cast']);
+          cast: e['cast'],
+          price: e['price'],
+          IMDB: e['IMDB'],
+          kinopoisk: e['kinopoisk']);
     }).toList();
 
     notifyListeners();

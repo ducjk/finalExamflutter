@@ -7,21 +7,17 @@ import 'package:test_project/gui/interfaces/session-overview.dart';
 import 'package:test_project/premieres/premieres_model.dart';
 import 'package:test_project/premieres/premieres_provider.dart';
 import 'package:test_project/product/product_model.dart';
+import 'package:test_project/product/user_model.dart';
 import 'package:test_project/utils.dart';
 
-class Sessions extends StatefulWidget {
+class Sessions extends StatelessWidget {
   final ProductModel product;
-  const Sessions({super.key, required this.product});
-
-  @override
-  State<Sessions> createState() => _SessionsState();
-}
-
-class _SessionsState extends State<Sessions> {
-  List<PremiereModel> list = [];
+  final UserModel user;
+  const Sessions({super.key, required this.product, required this.user});
 
   @override
   Widget build(BuildContext context) {
+    List<PremiereModel> list = [];
     var premiereProvider = Provider.of<PremiereProvider>(context);
     if (premiereProvider.list.isEmpty) {
       premiereProvider.getList();
@@ -352,7 +348,7 @@ class _SessionsState extends State<Sessions> {
                                                       0 * fem,
                                                       4 * fem),
                                                   child: Text(
-                                                    '16:15',
+                                                    e.time ?? "",
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
                                                       decoration:
@@ -474,7 +470,7 @@ class _SessionsState extends State<Sessions> {
                                                       0 * fem,
                                                       4 * fem),
                                                   child: Text(
-                                                    'Chaplin MEGA Silk Way',
+                                                    e.place ?? "",
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
                                                       decoration:
@@ -515,75 +511,7 @@ class _SessionsState extends State<Sessions> {
                                                         height: double.infinity,
                                                         child: Center(
                                                           child: Text(
-                                                            '2300 ₸',
-                                                            style:
-                                                                SafeGoogleFont(
-                                                              'PT Root UI',
-                                                              decoration:
-                                                                  TextDecoration
-                                                                      .none,
-                                                              fontSize:
-                                                                  14 * ffem,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w400,
-                                                              height:
-                                                                  1.2857142857 *
-                                                                      ffem /
-                                                                      fem,
-                                                              color: Color(
-                                                                  0xffffffff),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        // itemfSz (I8:1385;8:1293)
-                                                        margin:
-                                                            EdgeInsets.fromLTRB(
-                                                                0 * fem,
-                                                                0 * fem,
-                                                                56.25 * fem,
-                                                                0 * fem),
-                                                        width: 5 * fem,
-                                                        height: double.infinity,
-                                                        child: Center(
-                                                          child: Text(
-                                                            '•',
-                                                            style:
-                                                                SafeGoogleFont(
-                                                              'PT Root UI',
-                                                              decoration:
-                                                                  TextDecoration
-                                                                      .none,
-                                                              fontSize:
-                                                                  14 * ffem,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w400,
-                                                              height:
-                                                                  1.2857142857 *
-                                                                      ffem /
-                                                                      fem,
-                                                              color: Color(
-                                                                  0xff637393),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        // itemXEJ (I8:1385;8:1295)
-                                                        margin:
-                                                            EdgeInsets.fromLTRB(
-                                                                0 * fem,
-                                                                0 * fem,
-                                                                21.25 * fem,
-                                                                0 * fem),
-                                                        width: 40 * fem,
-                                                        height: double.infinity,
-                                                        child: Center(
-                                                          child: Text(
-                                                            '1600 ₸',
+                                                            product.price ?? "",
                                                             style:
                                                                 SafeGoogleFont(
                                                               'PT Root UI',
@@ -629,6 +557,41 @@ class _SessionsState extends State<Sessions> {
                                                                       fem,
                                                               color: Color(
                                                                   0xff637393),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Container(
+                                                        // itemBGv (I8:1385;8:1291)
+                                                        margin:
+                                                            EdgeInsets.fromLTRB(
+                                                                0 * fem,
+                                                                0 * fem,
+                                                                21.25 * fem,
+                                                                0 * fem),
+                                                        width: 40 * fem,
+                                                        height: double.infinity,
+                                                        child: Center(
+                                                          child: Text(
+                                                            product.release ??
+                                                                "",
+                                                            style:
+                                                                SafeGoogleFont(
+                                                              'PT Root UI',
+                                                              decoration:
+                                                                  TextDecoration
+                                                                      .none,
+                                                              fontSize:
+                                                                  14 * ffem,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w400,
+                                                              height:
+                                                                  1.2857142857 *
+                                                                      ffem /
+                                                                      fem,
+                                                              color: Color(
+                                                                  0xffffffff),
                                                             ),
                                                           ),
                                                         ),

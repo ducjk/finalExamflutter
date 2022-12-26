@@ -8,6 +8,9 @@ class ProductModel {
   String? runtime;
   String? release;
   String? cast;
+  String? price;
+  num? IMDB;
+  num? kinopoisk;
   ProductModel(
       {this.id,
       this.name,
@@ -17,7 +20,10 @@ class ProductModel {
       this.certificate,
       this.runtime,
       this.release,
-      this.cast});
+      this.cast,
+      this.price,
+      this.IMDB,
+      this.kinopoisk});
 
   // Map toJson() => {
   //       'id': id,

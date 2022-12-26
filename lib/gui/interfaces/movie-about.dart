@@ -4,11 +4,13 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_project/gui/interfaces/movie-sessions.dart';
 import 'package:test_project/product/product_model.dart';
+import 'package:test_project/product/user_model.dart';
 import 'package:test_project/utils.dart';
 
 class MovieAbout extends StatelessWidget {
   final ProductModel product;
-  const MovieAbout({super.key, required this.product});
+  final UserModel user;
+  const MovieAbout({super.key, required this.product, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -390,7 +392,7 @@ class MovieAbout extends StatelessWidget {
                             margin: EdgeInsets.fromLTRB(
                                 0 * fem, 0 * fem, 0 * fem, 2 * fem),
                             child: Text(
-                              '8.3',
+                              product.IMDB.toString(),
                               textAlign: TextAlign.center,
                               style: SafeGoogleFont(
                                 'PT Root UI',
@@ -441,7 +443,7 @@ class MovieAbout extends StatelessWidget {
                             margin: EdgeInsets.fromLTRB(
                                 0 * fem, 0 * fem, 0 * fem, 2 * fem),
                             child: Text(
-                              '7.9',
+                              product.kinopoisk.toString(),
                               textAlign: TextAlign.center,
                               style: SafeGoogleFont(
                                 'PT Root UI',
@@ -499,6 +501,7 @@ class MovieAbout extends StatelessWidget {
                           MaterialPageRoute(
                             builder: ((context) => (Sessions(
                                   product: product,
+                                  user: user,
                                 ))),
                           ),
                         );
@@ -712,6 +715,7 @@ class MovieAbout extends StatelessWidget {
                                             MaterialPageRoute(
                                               builder: ((context) => (Sessions(
                                                     product: product,
+                                                    user: user,
                                                   ))),
                                             ),
                                           );
