@@ -623,7 +623,7 @@ class MovieAbout extends StatelessWidget {
                                           Container(
                                             // titlewrapoDc (I1:714;4:222)
                                             margin: EdgeInsets.fromLTRB(0 * fem,
-                                                0 * fem, 63.5 * fem, 50 * fem),
+                                                0 * fem, 53.5 * fem, 50 * fem),
                                             child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.center,
@@ -652,7 +652,7 @@ class MovieAbout extends StatelessWidget {
                                                 ),
                                                 Text(
                                                   // screensubtitleCmY (I1:714;4:224)
-                                                  'Screen subtitle',
+                                                  product.category ?? "",
                                                   textAlign: TextAlign.center,
                                                   style: SafeGoogleFont(
                                                     'PT Root UI',

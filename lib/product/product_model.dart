@@ -8,7 +8,7 @@ class ProductModel {
   String? runtime;
   String? release;
   String? cast;
-  String? price;
+  num? price;
   num? IMDB;
   num? kinopoisk;
   ProductModel(

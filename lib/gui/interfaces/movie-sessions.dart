@@ -20,7 +20,7 @@ class Sessions extends StatelessWidget {
     List<PremiereModel> list = [];
     var premiereProvider = Provider.of<PremiereProvider>(context);
     if (premiereProvider.list.isEmpty) {
-      premiereProvider.getList();
+      premiereProvider.getList(product.id ?? 1);
     }
 
     if (list.isEmpty) {
@@ -513,7 +513,8 @@ class Sessions extends StatelessWidget {
                                                         height: double.infinity,
                                                         child: Center(
                                                           child: Text(
-                                                            product.price ?? "",
+                                                            product.price
+                                                                .toString(),
                                                             style:
                                                                 SafeGoogleFont(
                                                               'PT Root UI',
@@ -687,7 +688,7 @@ class Sessions extends StatelessWidget {
                                           Container(
                                             // titlewraprYa (I8:691;4:222)
                                             margin: EdgeInsets.fromLTRB(0 * fem,
-                                                0 * fem, 63.5 * fem, 50 * fem),
+                                                0 * fem, 43.5 * fem, 50 * fem),
                                             child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.center,
@@ -700,7 +701,7 @@ class Sessions extends StatelessWidget {
                                                       0 * fem,
                                                       8 * fem),
                                                   child: Text(
-                                                    'The Batman',
+                                                    product.name ?? "",
                                                     textAlign: TextAlign.center,
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
@@ -716,7 +717,7 @@ class Sessions extends StatelessWidget {
                                                 ),
                                                 Text(
                                                   // screensubtitleH86 (I8:691;4:224)
-                                                  'Screen subtitle',
+                                                  product.category ?? "",
                                                   textAlign: TextAlign.center,
                                                   style: SafeGoogleFont(
                                                     'PT Root UI',

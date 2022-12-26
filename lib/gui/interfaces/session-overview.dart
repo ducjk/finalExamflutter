@@ -545,7 +545,7 @@ class SessionOverView extends StatelessWidget {
                           ),
                           child: Center(
                             child: Text(
-                              'Buy 2 tickets • 3200 ₸',
+                              'Buy tickets',
                               textAlign: TextAlign.center,
                               style: SafeGoogleFont(
                                 'PT Root UI',

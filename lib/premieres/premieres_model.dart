@@ -4,6 +4,7 @@ class PremiereModel {
   String? time;
   String? place;
   String? date;
+  String? country;
   List<String>? listRow;
   List<String>? listSeatOfRow;
   PremiereModel(
@@ -13,5 +14,6 @@ class PremiereModel {
       this.place,
       this.date,
       this.listRow,
-      this.listSeatOfRow});
+      this.listSeatOfRow,
+      this.country});
 }

@@ -15,7 +15,8 @@ class Pay extends StatelessWidget {
   final ProductModel product;
   final UserModel user;
 
-  const Pay({super.key,
+  const Pay(
+      {super.key,
       required this.premiere,
       required this.product,
       required this.user});
@@ -121,7 +122,7 @@ class Pay extends StatelessWidget {
                                         ),
                                         Text(
                                           // screensubtitleFFG (I12:2967;4:224)
-                                          'Eurasia Cinema7',
+                                          premiere.place ?? "",
                                           textAlign: TextAlign.center,
                                           style: SafeGoogleFont(
                                             'PT Root UI',
@@ -186,7 +187,7 @@ class Pay extends StatelessWidget {
                                   margin: EdgeInsets.fromLTRB(
                                       0 * fem, 0 * fem, 0 * fem, 16 * fem),
                                   child: Text(
-                                    'The Batman',
+                                    product.name ?? "",
                                     style: SafeGoogleFont(
                                       'PT Root UI',
                                       decoration: TextDecoration.none,
@@ -248,7 +249,7 @@ class Pay extends StatelessWidget {
                                                         0 * fem,
                                                         4 * fem),
                                                     child: Text(
-                                                      'Eurasia Cinema7',
+                                                      premiere.place ?? "",
                                                       style: SafeGoogleFont(
                                                         'PT Root UI',
                                                         decoration:
@@ -266,7 +267,7 @@ class Pay extends StatelessWidget {
                                                   ),
                                                   Text(
                                                     // efc (12:3226)
-                                                    'ул. Петрова, д.24, ТЦ "Евразия"',
+                                                    premiere.country ?? "",
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
                                                       decoration:
@@ -333,7 +334,7 @@ class Pay extends StatelessWidget {
                                                   ),
                                                   Text(
                                                     // april20221440GKc (12:3229)
-                                                    '6 April 2022, 14:40',
+                                                    '${premiere.date}, ${premiere.time}',
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
                                                       decoration:
@@ -373,7 +374,7 @@ class Pay extends StatelessWidget {
                                                         66 * fem,
                                                         0 * fem),
                                                     child: Text(
-                                                      'Hall',
+                                                      '',
                                                       style: SafeGoogleFont(
                                                         'PT Root UI',
                                                         decoration:
@@ -391,7 +392,7 @@ class Pay extends StatelessWidget {
                                                   ),
                                                   Text(
                                                     // thMkN (12:3232)
-                                                    '6th',
+                                                    '',
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
                                                       decoration:
@@ -508,7 +509,7 @@ class Pay extends StatelessWidget {
                                         margin: EdgeInsets.fromLTRB(0 * fem,
                                             0 * fem, 32 * fem, 0 * fem),
                                         child: Text(
-                                          '1 x Adult',
+                                          '2 x Adult',
                                           style: SafeGoogleFont(
                                             'PT Root UI',
                                             decoration: TextDecoration.none,
@@ -521,7 +522,7 @@ class Pay extends StatelessWidget {
                                       ),
                                       Text(
                                         // 4KL (12:3242)
-                                        '2200 ₸',
+                                        product.price.toString(),
                                         style: SafeGoogleFont(
                                           'PT Root UI',
                                           decoration: TextDecoration.none,
@@ -551,7 +552,7 @@ class Pay extends StatelessWidget {
                                         margin: EdgeInsets.fromLTRB(0 * fem,
                                             0 * fem, 33 * fem, 0 * fem),
                                         child: Text(
-                                          '1 x Child',
+                                          '0 x Child',
                                           style: SafeGoogleFont(
                                             'PT Root UI',
                                             decoration: TextDecoration.none,
@@ -564,7 +565,7 @@ class Pay extends StatelessWidget {
                                       ),
                                       Text(
                                         // n8r (12:3245)
-                                        '1000 ₸',
+                                        product.price.toString(),
                                         style: SafeGoogleFont(
                                           'PT Root UI',
                                           decoration: TextDecoration.none,
@@ -607,7 +608,7 @@ class Pay extends StatelessWidget {
                                       ),
                                       Text(
                                         // qmL (12:3248)
-                                        '3200 ₸',
+                                        (product.price! * 2).toString(),
                                         style: SafeGoogleFont(
                                           'PT Root UI',
                                           decoration: TextDecoration.none,
@@ -871,7 +872,7 @@ class Pay extends StatelessWidget {
                                         width: 110 * fem,
                                         height: 24 * fem,
                                         child: Text(
-                                          '8 (707) 000 00 00',
+                                          user.phone ?? "0xxxxxxxxx",
                                           style: SafeGoogleFont(
                                             'PT Root UI',
                                             decoration: TextDecoration.none,
@@ -894,7 +895,9 @@ class Pay extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Ticket()),
+                                    builder: (context) => Ticket(
+                                          user: user,
+                                        )),
                               );
                             },
                             style: TextButton.styleFrom(

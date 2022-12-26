@@ -3,10 +3,13 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_project/gui/interfaces/home-non-auth.dart';
-import 'package:test_project/gui/interfaces/profile.dart';
+import 'package:test_project/product/user_model.dart';
 import 'package:test_project/utils.dart';
 
 class Ticket extends StatelessWidget {
+  final UserModel user;
+
+  const Ticket({super.key, required this.user});
   @override
   Widget build(BuildContext context) {
     double baseWidth = 375;
@@ -121,7 +124,8 @@ class Ticket extends StatelessWidget {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) => HomePage(user:)),
+                                              builder: (context) =>
+                                                  HomePage(user: user)),
                                         );
                                       },
                                       style: TextButton.styleFrom(

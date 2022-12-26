@@ -8,8 +8,8 @@ import 'package:test_project/product/product_model.dart';
 class PremiereProvider extends ChangeNotifier {
   List<PremiereModel> list = [];
 
-  void getList() async {
-    String urlAPI = 'http://localhost:3000/api/premieres';
+  void getList(num productid) async {
+    String urlAPI = 'http://localhost:3000/api/premieres?productid=$productid';
     var client = http.Client();
     var rs = await client.get(Uri.parse(urlAPI));
     var jsonString = rs.body;
@@ -32,6 +32,7 @@ class PremiereProvider extends ChangeNotifier {
           time: e['time'],
           place: e['place'],
           date: e['date'],
+          country: e['country'],
           listRow: listRow,
           listSeatOfRow: listSeatOfRow);
     }).toList();
