@@ -269,21 +269,21 @@ class _loginPageState extends State<loginPage> {
   }
 
   Future<void> login() async {
-    if (_userNameKey.text.isNotEmpty && _passwordKey.text.isNotEmpty) {
-      // var res = await http.post(Uri.parse("http://localhost:3000/api/users"),
-      //     body: ({'user': _userNameKey.text, 'pass': _passwordKey.text}));
-      UserModel user = 
-      if (res.statusCode == 200) {
-        print('res: ${res.body}');
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => forgotPage()));
-      } else {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text("Invalid Credentials")));
-      }
-    } else {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("black field not allowed")));
-    }
+    // if (_userNameKey.text.isNotEmpty && _passwordKey.text.isNotEmpty) {
+    // var res = await http.post(Uri.parse("http://localhost:3000/api/users"),
+    //     body: ({'user': _userNameKey.text, 'pass': _passwordKey.text}));
+    //     UserModel user =
+    //     if (res.statusCode == 200) {
+    //       print('res: ${res.body}');
+    //       Navigator.push(
+    //           context, MaterialPageRoute(builder: (context) => forgotPage()));
+    //     } else {
+    //       ScaffoldMessenger.of(context)
+    //           .showSnackBar(SnackBar(content: Text("Invalid Credentials")));
+    //     }
+    //   } else {
+    //     ScaffoldMessenger.of(context)
+    //         .showSnackBar(SnackBar(content: Text("black field not allowed")));
+    //   }
   }
 }

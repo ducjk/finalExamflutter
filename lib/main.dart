@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:test_project/model/user_provider.dart';
 import 'package:test_project/premieres/premieres_provider.dart';
 import 'package:test_project/product/product_provider.dart';
 import 'package:test_project/utils.dart';
@@ -55,7 +56,11 @@ class test_project extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => ProductProvider())],
+      providers: [
+        ChangeNotifierProvider(create: (_) => ProductProvider()),
+        ChangeNotifierProvider(create: (_) => PremiereProvider()),
+        ChangeNotifierProvider(create: (_) => UserProvider())
+      ],
       child: MaterialApp(
         title: 'Flutter',
         debugShowCheckedModeBanner: false,
