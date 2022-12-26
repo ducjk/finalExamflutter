@@ -8,6 +8,7 @@ import 'package:test_project/product/user_model.dart';
 
 class UserProvider extends ChangeNotifier {
   List<UserModel> list_users = [];
+  bool kt = false;
 
   void getListUser() async {
     String urlAPI = 'http://localhost:3000/api/users';
@@ -23,15 +24,17 @@ class UserProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<UserModel> checkLogin(String userName, String password) async {
+  void checkLogin(String userName, String password) async {
     String urlAPI =
         'http://localhost:3000/api/users?user=$userName&pass=$password';
     var client = http.Client();
     var rs = await client.get(Uri.parse(urlAPI));
     var jsonString = rs.body;
-    var user = jsonDecode(jsonString) as UserModel;
-    print(user.name);
+    // print(jsonString);
+    var user = jsonDecode(jsonString) as List;
+    if (user.length == 1) {
+      kt = true;
+    }
     notifyListeners();
-    return user;
   }
 }

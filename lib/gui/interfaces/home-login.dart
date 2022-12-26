@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:test_project/gui/interfaces/home-forgot.dart';
+import 'package:test_project/gui/interfaces/home-non-auth.dart';
 import 'package:test_project/gui/interfaces/home-register.dart';
 import 'package:test_project/product/user_model.dart';
 import 'package:test_project/product/user_provider.dart';
@@ -23,11 +24,13 @@ class _loginPageState extends State<loginPage> {
   var _userNameKey = TextEditingController();
 
   var _passwordKey = TextEditingController();
+  int test = 0;
 
   List<UserModel> listUser = [];
 
   @override
   Widget build(BuildContext context) {
+    print("re-render...");
     var userProvider = Provider.of<UserProvider>(context);
     if (userProvider.list_users.isEmpty) {
       userProvider.getListUser();
@@ -205,6 +208,32 @@ class _loginPageState extends State<loginPage> {
                                     //                       forgotPage()))
                                     //         }
                                     //     });
+
+                                    // if (_userNameKey.text.isNotEmpty &&
+                                    //     _passwordKey.text.isNotEmpty) {
+                                    //   var res = await http.post(Uri.parse("http://localhost:3000/api/users"),
+                                    //       body: ({'user': _userNameKey.text, 'pass': _passwordKey.text}));
+                                    //   userProvider.checkLogin(
+                                    //       _userNameKey.text, _passwordKey.text);
+
+                                    //   if (userProvider.kt) {
+                                    //     Navigator.push(
+                                    //         context,
+                                    //         MaterialPageRoute(
+                                    //             builder: (context) =>
+                                    //                 forgotPage()));
+                                    //   } else {
+                                    //     ScaffoldMessenger.of(context)
+                                    //         .showSnackBar(SnackBar(
+                                    //             content: Text(
+                                    //                 "Invalid Credentials")));
+                                    //   }
+                                    // } else {
+                                    //   ScaffoldMessenger.of(context)
+                                    //       .showSnackBar(SnackBar(
+                                    //           content: Text(
+                                    //               "black field not allowed")));
+                                    // }
                                     login();
                                   },
                                   child: Text("Đăng nhập",
@@ -269,21 +298,21 @@ class _loginPageState extends State<loginPage> {
   }
 
   Future<void> login() async {
-    // if (_userNameKey.text.isNotEmpty && _passwordKey.text.isNotEmpty) {
-    // var res = await http.post(Uri.parse("http://localhost:3000/api/users"),
-    //     body: ({'user': _userNameKey.text, 'pass': _passwordKey.text}));
-    //     UserModel user =
-    //     if (res.statusCode == 200) {
-    //       print('res: ${res.body}');
-    //       Navigator.push(
-    //           context, MaterialPageRoute(builder: (context) => forgotPage()));
-    //     } else {
-    //       ScaffoldMessenger.of(context)
-    //           .showSnackBar(SnackBar(content: Text("Invalid Credentials")));
-    //     }
-    //   } else {
-    //     ScaffoldMessenger.of(context)
-    //         .showSnackBar(SnackBar(content: Text("black field not allowed")));
-    //   }
+    if (_userNameKey.text.isNotEmpty && _passwordKey.text.isNotEmpty) {
+      var res = await http.get(Uri.parse(
+          "http://localhost:3000/api/users?user=${_userNameKey.text}&pass=${_passwordKey.text}"));
+
+      if (res.statusCode == 200) {
+        print('res: ${res.body}');
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HomePage()));
+      } else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("Invalid Credentials")));
+      }
+    } else {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("black field not allowed")));
+    }
   }
 }
