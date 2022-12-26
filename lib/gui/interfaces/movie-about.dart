@@ -3,7 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_project/gui/interfaces/movie-sessions.dart';
-import 'package:test_project/model/product_model.dart';
+import 'package:test_project/product/product_model.dart';
 import 'package:test_project/utils.dart';
 
 class MovieAbout extends StatelessWidget {

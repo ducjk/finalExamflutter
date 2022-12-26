@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:test_project/gui/interfaces/session-select-seats.dart';
+import 'package:test_project/premieres/premieres_model.dart';
 import 'package:test_project/utils.dart';
 
-class Scene extends StatelessWidget {
+class SessionOverView extends StatelessWidget {
+  final PremiereModel premiere;
+  const SessionOverView({super.key, required this.premiere});
   @override
   Widget build(BuildContext context) {
     double baseWidth = 375;
@@ -39,65 +43,6 @@ class Scene extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        // statusbarJyG (8:2001)
-                        margin: EdgeInsets.fromLTRB(
-                            33.27 * fem, 0 * fem, 14.34 * fem, 15.33 * fem),
-                        width: double.infinity,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              // timepAv (I8:2001;1:70)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 232.23 * fem, 0.41 * fem),
-                              width: 28.5 * fem,
-                              height: 11.09 * fem,
-                              child: Image.asset(
-                                'assets/interfaces/images/time-fwg.png',
-                                width: 28.5 * fem,
-                                height: 11.09 * fem,
-                              ),
-                            ),
-                            Container(
-                              // cellularconnectionqri (I8:2001;1:79)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0.17 * fem, 5 * fem, 0 * fem),
-                              width: 17 * fem,
-                              height: 10.67 * fem,
-                              child: Image.asset(
-                                'assets/interfaces/images/cellular-connection-svA.png',
-                                width: 17 * fem,
-                                height: 10.67 * fem,
-                              ),
-                            ),
-                            Container(
-                              // wifi3C6 (I8:2001;1:75)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 5 * fem, 0.17 * fem),
-                              width: 15.33 * fem,
-                              height: 11 * fem,
-                              child: Image.asset(
-                                'assets/interfaces/images/wifi-ASv.png',
-                                width: 15.33 * fem,
-                                height: 11 * fem,
-                              ),
-                            ),
-                            Container(
-                              // batteryHML (I8:2001;1:71)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0.17 * fem, 0 * fem, 0 * fem),
-                              width: 24.33 * fem,
-                              height: 11.33 * fem,
-                              child: Image.asset(
-                                'assets/interfaces/images/battery-sPG.png',
-                                width: 24.33 * fem,
-                                height: 11.33 * fem,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
                         // topbar4WW (8:2000)
                         margin: EdgeInsets.fromLTRB(
                             0 * fem, 0 * fem, 0 * fem, 12 * fem),
@@ -116,22 +61,19 @@ class Scene extends StatelessWidget {
                               children: [
                                 TextButton(
                                   // glyphMP8 (I8:2000;1:704)
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
-                                  child: Container(
-                                    width: 40 * fem,
-                                    height: 40 * fem,
-                                    child: Image.asset(
-                                      'assets/interfaces/images/glyph-Ain.png',
-                                      width: 40 * fem,
-                                      height: 40 * fem,
-                                    ),
+                                  child: Icon(
+                                    Icons.arrow_back_ios,
+                                    size: 40 * fem,
                                   ),
                                 ),
                                 SizedBox(
-                                  width: 65.5 * fem,
+                                  width: 55.5 * fem,
                                 ),
                                 Container(
                                   // titlewrapV7x (I8:2000;1:703)
@@ -149,6 +91,7 @@ class Scene extends StatelessWidget {
                                           textAlign: TextAlign.center,
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 18 * ffem,
                                             fontWeight: FontWeight.w700,
                                             height: 1 * ffem / fem,
@@ -162,6 +105,7 @@ class Scene extends StatelessWidget {
                                         textAlign: TextAlign.center,
                                         style: SafeGoogleFont(
                                           'PT Root UI',
+                                          decoration: TextDecoration.none,
                                           fontSize: 14 * ffem,
                                           fontWeight: FontWeight.w400,
                                           height: 1 * ffem / fem,
@@ -172,11 +116,21 @@ class Scene extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(
-                                  width: 65.5 * fem,
+                                  width: 55.5 * fem,
                                 ),
                                 TextButton(
                                   // glyphXsG (I8:2000;1:709)
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: ((context) =>
+                                            (SessionSelectSeat(
+                                              premiere: premiere,
+                                            ))),
+                                      ),
+                                    );
+                                  },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
@@ -184,7 +138,7 @@ class Scene extends StatelessWidget {
                                     width: 40 * fem,
                                     height: 40 * fem,
                                     child: Image.asset(
-                                      'assets/interfaces/images/glyph-z6v.png',
+                                      'assets/icon/seesionglyph.png',
                                       width: 40 * fem,
                                       height: 40 * fem,
                                     ),
@@ -225,7 +179,7 @@ class Scene extends StatelessWidget {
                                     width: 18 * fem,
                                     height: 18 * fem,
                                     child: Image.asset(
-                                      'assets/interfaces/images/calendar.png',
+                                      'assets/icon/calendar.png',
                                       width: 18 * fem,
                                       height: 18 * fem,
                                     ),
@@ -238,6 +192,7 @@ class Scene extends StatelessWidget {
                                       'April, 14',
                                       style: SafeGoogleFont(
                                         'PT Root UI',
+                                        decoration: TextDecoration.none,
                                         fontSize: 14 * ffem,
                                         fontWeight: FontWeight.w700,
                                         height: 1.2575 * ffem / fem,
@@ -267,7 +222,7 @@ class Scene extends StatelessWidget {
                                     width: 20 * fem,
                                     height: 20 * fem,
                                     child: Image.asset(
-                                      'assets/interfaces/images/clock-Vqk.png',
+                                      'assets/icon/calendar.png',
                                       width: 20 * fem,
                                       height: 20 * fem,
                                     ),
@@ -280,6 +235,7 @@ class Scene extends StatelessWidget {
                                       '15:10',
                                       style: SafeGoogleFont(
                                         'PT Root UI',
+                                        decoration: TextDecoration.none,
                                         fontSize: 14 * ffem,
                                         fontWeight: FontWeight.w700,
                                         height: 1.2575 * ffem / fem,
@@ -344,17 +300,6 @@ class Scene extends StatelessWidget {
                                     borderRadius:
                                         BorderRadius.circular(12 * fem),
                                   ),
-                                  child: Text(
-                                    '6',
-                                    textAlign: TextAlign.center,
-                                    style: SafeGoogleFont(
-                                      'IBM Plex Sans',
-                                      fontSize: 12 * ffem,
-                                      fontWeight: FontWeight.w500,
-                                      height: 1.3 * ffem / fem,
-                                      color: Color(0xffffffff),
-                                    ),
-                                  ),
                                 ),
                                 Text(
                                   // available8QS (8:3019)
@@ -362,6 +307,7 @@ class Scene extends StatelessWidget {
                                   textAlign: TextAlign.center,
                                   style: SafeGoogleFont(
                                     'PT Root UI',
+                                    decoration: TextDecoration.none,
                                     fontSize: 12 * ffem,
                                     fontWeight: FontWeight.w500,
                                     height: 1 * ffem / fem,
@@ -386,7 +332,7 @@ class Scene extends StatelessWidget {
                                   width: 16 * fem,
                                   height: 16 * fem,
                                   child: Image.asset(
-                                    'assets/interfaces/images/seat-81p.png',
+                                    'assets/icon/seatclose.png',
                                     width: 16 * fem,
                                     height: 16 * fem,
                                   ),
@@ -397,6 +343,7 @@ class Scene extends StatelessWidget {
                                   textAlign: TextAlign.center,
                                   style: SafeGoogleFont(
                                     'PT Root UI',
+                                    decoration: TextDecoration.none,
                                     fontSize: 12 * ffem,
                                     fontWeight: FontWeight.w500,
                                     height: 1 * ffem / fem,
@@ -440,17 +387,6 @@ class Scene extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  child: Text(
-                                    '1',
-                                    textAlign: TextAlign.center,
-                                    style: SafeGoogleFont(
-                                      'IBM Plex Sans',
-                                      fontSize: 12 * ffem,
-                                      fontWeight: FontWeight.w500,
-                                      height: 1.3 * ffem / fem,
-                                      color: Color(0xffffffff),
-                                    ),
-                                  ),
                                 ),
                                 Text(
                                   // chosen7zS (8:3025)
@@ -458,6 +394,7 @@ class Scene extends StatelessWidget {
                                   textAlign: TextAlign.center,
                                   style: SafeGoogleFont(
                                     'PT Root UI',
+                                    decoration: TextDecoration.none,
                                     fontSize: 12 * ffem,
                                     fontWeight: FontWeight.w500,
                                     height: 1 * ffem / fem,
@@ -488,7 +425,7 @@ class Scene extends StatelessWidget {
                               width: 296 * fem,
                               height: 19 * fem,
                               child: Image.asset(
-                                'assets/interfaces/images/screen.png',
+                                'assets/icon/sessionscreen.png',
                                 width: 296 * fem,
                                 height: 19 * fem,
                               ),
@@ -524,6 +461,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -550,6 +488,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -576,6 +515,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -602,6 +542,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -628,6 +569,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -654,6 +596,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -680,6 +623,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -706,6 +650,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -732,6 +677,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -758,6 +704,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -784,6 +731,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -810,6 +758,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -836,6 +785,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -862,6 +812,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -888,6 +839,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -925,6 +877,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -951,6 +904,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -977,6 +931,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1003,6 +958,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1029,6 +985,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1055,6 +1012,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1081,6 +1039,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1107,6 +1066,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1133,6 +1093,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1159,6 +1120,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1185,6 +1147,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1211,6 +1174,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1237,6 +1201,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1263,6 +1228,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1289,6 +1255,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1326,6 +1293,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1352,6 +1320,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1378,6 +1347,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1404,6 +1374,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1430,6 +1401,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1456,6 +1428,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1482,6 +1455,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1508,6 +1482,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1534,6 +1509,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1560,6 +1536,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1586,6 +1563,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1612,6 +1590,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1638,6 +1617,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1664,6 +1644,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1690,6 +1671,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1727,6 +1709,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1753,6 +1736,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1779,6 +1763,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1805,6 +1790,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1831,6 +1817,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1857,6 +1844,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1883,6 +1871,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1909,6 +1898,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1935,6 +1925,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1961,6 +1952,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -1987,6 +1979,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2013,6 +2006,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2039,6 +2033,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2065,6 +2060,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2091,6 +2087,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2128,6 +2125,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2154,6 +2152,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2180,6 +2179,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2206,6 +2206,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2232,6 +2233,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2258,6 +2260,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2274,7 +2277,7 @@ class Scene extends StatelessWidget {
                                           width: 12 * fem,
                                           height: 12 * fem,
                                           child: Image.asset(
-                                            'assets/interfaces/images/seat-v18.png',
+                                            'assets/icon/seatclose.png',
                                             width: 12 * fem,
                                             height: 12 * fem,
                                           ),
@@ -2287,7 +2290,7 @@ class Scene extends StatelessWidget {
                                           width: 12 * fem,
                                           height: 12 * fem,
                                           child: Image.asset(
-                                            'assets/interfaces/images/seat.png',
+                                            'assets/icon/seatclose.png',
                                             width: 12 * fem,
                                             height: 12 * fem,
                                           ),
@@ -2310,6 +2313,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2336,6 +2340,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2362,6 +2367,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2388,6 +2394,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2414,6 +2421,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2440,6 +2448,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2466,6 +2475,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2503,6 +2513,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2529,6 +2540,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2555,6 +2567,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2581,6 +2594,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2607,6 +2621,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2633,6 +2648,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2649,7 +2665,7 @@ class Scene extends StatelessWidget {
                                           width: 12 * fem,
                                           height: 12 * fem,
                                           child: Image.asset(
-                                            'assets/interfaces/images/seat-ShQ.png',
+                                            'assets/icon/seatclose.png',
                                             width: 12 * fem,
                                             height: 12 * fem,
                                           ),
@@ -2662,7 +2678,7 @@ class Scene extends StatelessWidget {
                                           width: 12 * fem,
                                           height: 12 * fem,
                                           child: Image.asset(
-                                            'assets/interfaces/images/seat-vS6.png',
+                                            'assets/icon/seatclose.png',
                                             width: 12 * fem,
                                             height: 12 * fem,
                                           ),
@@ -2675,7 +2691,7 @@ class Scene extends StatelessWidget {
                                           width: 12 * fem,
                                           height: 12 * fem,
                                           child: Image.asset(
-                                            'assets/interfaces/images/seat-Yyp.png',
+                                            'assets/icon/seatclose.png',
                                             width: 12 * fem,
                                             height: 12 * fem,
                                           ),
@@ -2698,6 +2714,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2724,6 +2741,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2750,6 +2768,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2776,6 +2795,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2802,6 +2822,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2828,6 +2849,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2865,6 +2887,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2891,6 +2914,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2917,6 +2941,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2943,6 +2968,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2969,6 +2995,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -2985,7 +3012,7 @@ class Scene extends StatelessWidget {
                                           width: 12 * fem,
                                           height: 12 * fem,
                                           child: Image.asset(
-                                            'assets/interfaces/images/seat-3xn.png',
+                                            'assets/icon/seatclose.png',
                                             width: 12 * fem,
                                             height: 12 * fem,
                                           ),
@@ -2998,7 +3025,7 @@ class Scene extends StatelessWidget {
                                           width: 12 * fem,
                                           height: 12 * fem,
                                           child: Image.asset(
-                                            'assets/interfaces/images/seat-z6W.png',
+                                            'assets/icon/seatclose.png',
                                             width: 12 * fem,
                                             height: 12 * fem,
                                           ),
@@ -3011,7 +3038,7 @@ class Scene extends StatelessWidget {
                                           width: 12 * fem,
                                           height: 12 * fem,
                                           child: Image.asset(
-                                            'assets/interfaces/images/seat-HES.png',
+                                            'assets/icon/seatclose.png',
                                             width: 12 * fem,
                                             height: 12 * fem,
                                           ),
@@ -3024,7 +3051,7 @@ class Scene extends StatelessWidget {
                                           width: 12 * fem,
                                           height: 12 * fem,
                                           child: Image.asset(
-                                            'assets/interfaces/images/seat-phx.png',
+                                            'assets/icon/seatclose.png',
                                             width: 12 * fem,
                                             height: 12 * fem,
                                           ),
@@ -3047,6 +3074,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3073,6 +3101,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3099,6 +3128,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3125,6 +3155,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3151,6 +3182,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3177,6 +3209,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3214,6 +3247,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3240,6 +3274,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3266,6 +3301,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3292,6 +3328,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3318,6 +3355,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3344,6 +3382,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3370,6 +3409,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3396,6 +3436,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3422,6 +3463,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3448,6 +3490,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3474,6 +3517,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3500,6 +3544,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3526,6 +3571,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3552,6 +3598,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3578,6 +3625,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3615,6 +3663,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3641,6 +3690,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3667,6 +3717,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3693,6 +3744,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3719,6 +3771,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3735,7 +3788,7 @@ class Scene extends StatelessWidget {
                                           width: 12 * fem,
                                           height: 12 * fem,
                                           child: Image.asset(
-                                            'assets/interfaces/images/seat-4L2.png',
+                                            'assets/icon/seatclose.png',
                                             width: 12 * fem,
                                             height: 12 * fem,
                                           ),
@@ -3748,7 +3801,7 @@ class Scene extends StatelessWidget {
                                           width: 12 * fem,
                                           height: 12 * fem,
                                           child: Image.asset(
-                                            'assets/interfaces/images/seat-wVL.png',
+                                            'assets/icon/seatclose.png',
                                             width: 12 * fem,
                                             height: 12 * fem,
                                           ),
@@ -3771,6 +3824,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3797,6 +3851,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3823,6 +3878,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3849,6 +3905,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3875,6 +3932,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3901,6 +3959,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3927,6 +3986,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3953,6 +4013,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -3990,6 +4051,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4016,6 +4078,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4042,6 +4105,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4068,6 +4132,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4094,6 +4159,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4120,6 +4186,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4146,6 +4213,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4162,7 +4230,7 @@ class Scene extends StatelessWidget {
                                           width: 12 * fem,
                                           height: 12 * fem,
                                           child: Image.asset(
-                                            'assets/interfaces/images/seat-Gk2.png',
+                                            'assets/icon/seatclose.png',
                                             width: 12 * fem,
                                             height: 12 * fem,
                                           ),
@@ -4175,7 +4243,7 @@ class Scene extends StatelessWidget {
                                           width: 12 * fem,
                                           height: 12 * fem,
                                           child: Image.asset(
-                                            'assets/interfaces/images/seat-JTC.png',
+                                            'assets/icon/seatclose.png',
                                             width: 12 * fem,
                                             height: 12 * fem,
                                           ),
@@ -4198,6 +4266,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4224,6 +4293,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4250,6 +4320,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4276,6 +4347,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4302,6 +4374,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4328,6 +4401,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4365,6 +4439,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4391,6 +4466,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4417,6 +4493,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4433,7 +4510,7 @@ class Scene extends StatelessWidget {
                                           width: 12 * fem,
                                           height: 12 * fem,
                                           child: Image.asset(
-                                            'assets/interfaces/images/seat-TUv.png',
+                                            'assets/icon/seatclose.png',
                                             width: 12 * fem,
                                             height: 12 * fem,
                                           ),
@@ -4446,7 +4523,7 @@ class Scene extends StatelessWidget {
                                           width: 12 * fem,
                                           height: 12 * fem,
                                           child: Image.asset(
-                                            'assets/interfaces/images/seat-XVC.png',
+                                            'assets/icon/seatclose.png',
                                             width: 12 * fem,
                                             height: 12 * fem,
                                           ),
@@ -4459,7 +4536,7 @@ class Scene extends StatelessWidget {
                                           width: 12 * fem,
                                           height: 12 * fem,
                                           child: Image.asset(
-                                            'assets/interfaces/images/seat-S18.png',
+                                            'assets/icon/seatclose.png',
                                             width: 12 * fem,
                                             height: 12 * fem,
                                           ),
@@ -4482,6 +4559,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4508,6 +4586,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4534,6 +4613,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4560,6 +4640,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4586,6 +4667,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4612,6 +4694,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4638,6 +4721,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4664,6 +4748,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
@@ -4690,6 +4775,7 @@ class Scene extends StatelessWidget {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'IBM Plex Sans',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 6 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.3 * ffem / fem,
