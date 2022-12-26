@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:test_project/gui/interfaces/home-non-auth.dart';
+import 'package:test_project/gui/interfaces/profile.dart';
 import 'package:test_project/utils.dart';
 
 class Ticket extends StatelessWidget {
@@ -115,7 +117,13 @@ class Ticket extends StatelessWidget {
                                     margin: EdgeInsets.fromLTRB(
                                         0 * fem, 0 * fem, 0 * fem, 12 * fem),
                                     child: TextButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => HomePage(user:)),
+                                        );
+                                      },
                                       style: TextButton.styleFrom(
                                         padding: EdgeInsets.zero,
                                       ),
