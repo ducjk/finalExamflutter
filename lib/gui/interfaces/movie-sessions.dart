@@ -310,6 +310,8 @@ class Sessions extends StatelessWidget {
                                       MaterialPageRoute(
                                         builder: ((context) => (SessionOverView(
                                               premiere: e,
+                                              user: user,
+                                              product: product,
                                             ))),
                                       ),
                                     );

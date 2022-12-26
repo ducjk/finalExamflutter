@@ -3,14 +3,21 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_project/gui/interfaces/pay.dart';
-import 'package:test_project/gui/interfaces/session-select-seats.dart';
 import 'package:test_project/premieres/premieres_model.dart';
+import 'package:test_project/product/product_model.dart';
+import 'package:test_project/product/user_model.dart';
 import 'package:test_project/utils.dart';
 
 class SessionOverView extends StatelessWidget {
   final PremiereModel premiere;
+  final ProductModel product;
+  final UserModel user;
 
-  const SessionOverView({super.key, required this.premiere});
+  const SessionOverView(
+      {super.key,
+      required this.premiere,
+      required this.product,
+      required this.user});
   @override
   Widget build(BuildContext context) {
     double baseWidth = 375;
@@ -124,17 +131,7 @@ class SessionOverView extends StatelessWidget {
                                 ),
                                 TextButton(
                                   // glyphXsG (I8:2000;1:709)
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: ((context) =>
-                                            (SessionSelectSeat(
-                                              premiere: premiere,
-                                            ))),
-                                      ),
-                                    );
-                                  },
+                                  onPressed: () {},
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
@@ -513,7 +510,11 @@ class SessionOverView extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: ((context) => (Pay())),
+                              builder: ((context) => (Pay(
+                                    user: user,
+                                    product: product,
+                                    premiere: premiere,
+                                  ))),
                             ),
                           );
                         },

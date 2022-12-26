@@ -5,9 +5,20 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_project/gui/interfaces/home-login.dart';
 import 'package:test_project/gui/interfaces/ticket.dart';
+import 'package:test_project/premieres/premieres_model.dart';
+import 'package:test_project/product/product_model.dart';
+import 'package:test_project/product/user_model.dart';
 import 'package:test_project/utils.dart';
 
 class Pay extends StatelessWidget {
+  final PremiereModel premiere;
+  final ProductModel product;
+  final UserModel user;
+
+  const Pay({super.key,
+      required this.premiere,
+      required this.product,
+      required this.user});
   @override
   Widget build(BuildContext context) {
     double baseWidth = 375;

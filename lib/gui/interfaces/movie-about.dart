@@ -61,6 +61,7 @@ class MovieAbout extends StatelessWidget {
                   children: [
                     Container(
                       // description85g (1:770)
+                      height: 100 * fem,
                       margin: EdgeInsets.fromLTRB(
                           0 * fem, 0 * fem, 0 * fem, 12 * fem),
                       constraints: BoxConstraints(
@@ -68,6 +69,7 @@ class MovieAbout extends StatelessWidget {
                       ),
                       child: Text(
                         product.description.toString(),
+                        overflow: TextOverflow.clip,
                         style: SafeGoogleFont(
                           'PT Root UI',
                           decoration: TextDecoration.none,
@@ -584,7 +586,7 @@ class MovieAbout extends StatelessWidget {
                                 top: 0 * fem,
                                 child: Container(
                                   padding: EdgeInsets.fromLTRB(
-                                      16 * fem, 12 * fem, 52 * fem, 0 * fem),
+                                      16 * fem, 12 * fem, 42 * fem, 0 * fem),
                                   width: 375 * fem,
                                   height: 124 * fem,
                                   child: ClipRect(
