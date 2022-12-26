@@ -8,6 +8,7 @@ import 'package:test_project/product/user_model.dart';
 
 class UserProvider extends ChangeNotifier {
   List<UserModel> list_users = [];
+  UserModel user = new UserModel();
   bool kt = false;
 
   void getListUser() async {
@@ -34,6 +35,7 @@ class UserProvider extends ChangeNotifier {
     var user = jsonDecode(jsonString) as List;
     if (user.length == 1) {
       kt = true;
+      user = user;
     }
     notifyListeners();
   }

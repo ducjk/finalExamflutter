@@ -64,7 +64,9 @@ class Pay extends StatelessWidget {
                                     margin: EdgeInsets.fromLTRB(
                                         0 * fem, 0 * fem, 75 * fem, 72 * fem),
                                     child: TextButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
                                       style: TextButton.styleFrom(
                                         padding: EdgeInsets.zero,
                                       ),

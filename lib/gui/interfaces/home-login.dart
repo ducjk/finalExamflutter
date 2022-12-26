@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'dart:convert';
+
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -24,6 +26,7 @@ class _loginPageState extends State<loginPage> {
   var _userNameKey = TextEditingController();
 
   var _passwordKey = TextEditingController();
+  UserModel user = new UserModel();
   int test = 0;
 
   List<UserModel> listUser = [];
@@ -301,11 +304,37 @@ class _loginPageState extends State<loginPage> {
     if (_userNameKey.text.isNotEmpty && _passwordKey.text.isNotEmpty) {
       var res = await http.get(Uri.parse(
           "http://localhost:3000/api/users?user=${_userNameKey.text}&pass=${_passwordKey.text}"));
-
-      if (res.statusCode == 200) {
-        print('res: ${res.body}');
+      _userNameKey.text = "";
+      _passwordKey.text = "";
+      var jsonObject = jsonDecode(res.body) as List;
+      if (jsonObject.length == 1) {
+        user.id = jsonObject.first['id'];
+        user.user = jsonObject.first['user'];
+        user.name = jsonObject.first['name'];
+        user.pass = jsonObject.first['pass'];
+      }
+      print(user.name);
+      if (user.user != null) {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
+          context,
+          MaterialPageRoute(
+            builder: (context) => MaterialApp(
+              title: 'Flutter',
+              debugShowCheckedModeBanner: false,
+              scrollBehavior: MyCustomScrollBehavior(),
+              theme: ThemeData(
+                primarySwatch: Colors.blue,
+              ),
+              home: Scaffold(
+                body: SingleChildScrollView(
+                  child: HomePage(
+                    user: user,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
       } else {
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text("Invalid Credentials")));

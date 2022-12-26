@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
@@ -7,23 +9,22 @@ import 'package:test_project/gui/interfaces/home-login.dart';
 import 'package:test_project/gui/interfaces/movie-about.dart';
 import 'package:test_project/product/product_model.dart';
 import 'package:test_project/product/product_provider.dart';
+import 'package:test_project/product/user_model.dart';
 import 'package:test_project/utils.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
+class HomePage extends StatelessWidget {
+  final UserModel user;
 
-class _HomePageState extends State<HomePage> {
-  List<ProductModel> listProduct = [];
+  const HomePage({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
+    List<ProductModel> listProduct = [];
     var productProvider = Provider.of<ProductProvider>(context);
     if (productProvider.list.isEmpty) {
       productProvider.getList();
     }
-
+    print('user name: ${user.name}');
     if (listProduct.isEmpty) {
       listProduct = [...productProvider.list];
     }
@@ -238,56 +239,10 @@ class _HomePageState extends State<HomePage> {
                                       ],
                                     ),
                                   ),
-                                  TextButton(
-                                    // buttonu5U (1:623)
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: ((context) => (loginPage())),
-                                        ),
-                                      );
-                                    },
-                                    style: TextButton.styleFrom(
-                                      padding: EdgeInsets.zero,
-                                    ),
-                                    child: Container(
-                                      width: 70 * fem,
-                                      height: double.infinity,
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8 * fem),
-                                        gradient: LinearGradient(
-                                          begin: Alignment(0, -1),
-                                          end: Alignment(0, 1),
-                                          colors: <Color>[
-                                            Color(0xffff8036),
-                                            Color(0xfffc6c19)
-                                          ],
-                                          stops: <double>[0, 1],
-                                        ),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Color(0x3fff8036),
-                                            offset: Offset(0 * fem, 4 * fem),
-                                            blurRadius: 8 * fem,
-                                          ),
-                                        ],
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          'Log in',
-                                          style: SafeGoogleFont(
-                                            'PT Root UI',
-                                            fontSize: 14 * ffem,
-                                            fontWeight: FontWeight.w700,
-                                            height: 1.2575 * ffem / fem,
-                                            color: Color(0xffffffff),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
+                                  (user.name == null)
+                                      ? buildButtonLogin(context, fem, ffem)
+                                      : buildButtonAccount(
+                                          context, fem, ffem, user.name),
                                 ],
                               ),
                             ),
@@ -625,6 +580,99 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  TextButton buildButtonLogin(BuildContext context, double fem, double ffem) {
+    return TextButton(
+      // buttonu5U (1:623)
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => (loginPage())),
+          ),
+        );
+      },
+      style: TextButton.styleFrom(
+        padding: EdgeInsets.zero,
+      ),
+      child: Container(
+        width: 70 * fem,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8 * fem),
+          gradient: LinearGradient(
+            begin: Alignment(0, -1),
+            end: Alignment(0, 1),
+            colors: <Color>[Color(0xffff8036), Color(0xfffc6c19)],
+            stops: <double>[0, 1],
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Color(0x3fff8036),
+              offset: Offset(0 * fem, 4 * fem),
+              blurRadius: 8 * fem,
+            ),
+          ],
+        ),
+        child: Center(
+          child: Text(
+            'Log in',
+            style: SafeGoogleFont(
+              'PT Root UI',
+              fontSize: 14 * ffem,
+              fontWeight: FontWeight.w700,
+              height: 1.2575 * ffem / fem,
+              color: Color(0xffffffff),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  TextButton buildButtonAccount(
+      BuildContext context, double fem, double ffem, String? name) {
+    return TextButton(
+      // buttonu5U (1:623)
+      onPressed: () {},
+      style: TextButton.styleFrom(
+        padding: EdgeInsets.zero,
+      ),
+      child: Container(
+        width: 70 * fem,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8 * fem),
+          gradient: LinearGradient(
+            begin: Alignment(0, -1),
+            end: Alignment(0, 1),
+            colors: <Color>[Color(0xffff8036), Color(0xfffc6c19)],
+            stops: <double>[0, 1],
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Color(0x3fff8036),
+              offset: Offset(0 * fem, 4 * fem),
+              blurRadius: 8 * fem,
+            ),
+          ],
+        ),
+        child: Center(
+          child: Text(
+            '${name}',
+            overflow: TextOverflow.ellipsis,
+            style: SafeGoogleFont(
+              'PT Root UI',
+              fontSize: 14 * ffem,
+              fontWeight: FontWeight.w700,
+              height: 1.2575 * ffem / fem,
+              color: Color(0xffffffff),
+            ),
+          ),
         ),
       ),
     );

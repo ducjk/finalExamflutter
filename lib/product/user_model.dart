@@ -10,4 +10,10 @@ class UserModel {
     this.user,
     this.pass,
   });
+  Map toJson() => {
+        'id': id,
+        'name': name,
+        'user': user,
+        'pass': pass,
+      };
 }
