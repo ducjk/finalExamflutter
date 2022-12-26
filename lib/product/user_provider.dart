@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:test_project/gui/interfaces/home-forgot.dart';
-import 'package:test_project/model/user_provider.dart';
-import 'package:test_project/model/user_model.dart';
+import 'package:test_project/product/user_provider.dart';
+import 'package:test_project/product/user_model.dart';
 
 class UserProvider extends ChangeNotifier {
   List<UserModel> list_users = [];
