@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:test_project/gui/interfaces/home-forgot.dart';
 import 'package:test_project/gui/interfaces/home-register.dart';
-import 'package:test_project/model/user_model.dart';
-import 'package:test_project/model/user_provider.dart';
+import 'package:test_project/product/user_model.dart';
+import 'package:test_project/product/user_provider.dart';
 import 'package:test_project/utils.dart';
 import 'package:http/http.dart' as http;
 
