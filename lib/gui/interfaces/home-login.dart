@@ -136,6 +136,7 @@ class _loginPageState extends State<loginPage> {
                         height: 6,
                       ),
                       TextFormField(
+                        obscureText: true,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "Trường này không được để trống";
