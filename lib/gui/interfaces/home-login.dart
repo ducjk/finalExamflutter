@@ -197,46 +197,6 @@ class _loginPageState extends State<loginPage> {
                                     ),
                                   ),
                                   onPressed: () {
-                                    // listUser.map((e) => {
-                                    //       if (e.user == _userNameKey &&
-                                    //           e.pass == _passwordKey)
-                                    //         {
-
-                                    //           print(e.user),
-                                    //           print(_userNameKey),
-                                    //           Navigator.push(
-                                    //               context,
-                                    //               MaterialPageRoute(
-                                    //                   builder: (context) =>
-                                    //                       forgotPage()))
-                                    //         }
-                                    //     });
-
-                                    // if (_userNameKey.text.isNotEmpty &&
-                                    //     _passwordKey.text.isNotEmpty) {
-                                    //   var res = await http.post(Uri.parse("http://localhost:3000/api/users"),
-                                    //       body: ({'user': _userNameKey.text, 'pass': _passwordKey.text}));
-                                    //   userProvider.checkLogin(
-                                    //       _userNameKey.text, _passwordKey.text);
-
-                                    //   if (userProvider.kt) {
-                                    //     Navigator.push(
-                                    //         context,
-                                    //         MaterialPageRoute(
-                                    //             builder: (context) =>
-                                    //                 forgotPage()));
-                                    //   } else {
-                                    //     ScaffoldMessenger.of(context)
-                                    //         .showSnackBar(SnackBar(
-                                    //             content: Text(
-                                    //                 "Invalid Credentials")));
-                                    //   }
-                                    // } else {
-                                    //   ScaffoldMessenger.of(context)
-                                    //       .showSnackBar(SnackBar(
-                                    //           content: Text(
-                                    //               "black field not allowed")));
-                                    // }
                                     login();
                                   },
                                   child: Text("Đăng nhập",
@@ -312,9 +272,11 @@ class _loginPageState extends State<loginPage> {
         user.user = jsonObject.first['user'];
         user.name = jsonObject.first['name'];
         user.pass = jsonObject.first['pass'];
+        user.phone = jsonObject.first['phone'];
+        user.visa = jsonObject.first['visa'];
       }
-      print(user.name);
       if (user.user != null) {
+        print('user phone: ${user.phone}');
         Navigator.push(
           context,
           MaterialPageRoute(

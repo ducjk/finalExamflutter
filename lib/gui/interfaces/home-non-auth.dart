@@ -25,7 +25,6 @@ class HomePage extends StatelessWidget {
     if (productProvider.list.isEmpty) {
       productProvider.getList();
     }
-    print('user name: ${user.name}');
     if (listProduct.isEmpty) {
       listProduct = [...productProvider.list];
     }
@@ -242,8 +241,7 @@ class HomePage extends StatelessWidget {
                                   ),
                                   (user.name == null)
                                       ? buildButtonLogin(context, fem, ffem)
-                                      : buildButtonAccount(
-                                          context, fem, ffem, user.name),
+                                      : buildButtonAccount(context, fem, ffem),
                                 ],
                               ),
                             ),
@@ -469,14 +467,13 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  TextButton buildButtonAccount(
-      BuildContext context, double fem, double ffem, String? name) {
+  TextButton buildButtonAccount(BuildContext context, double fem, double ffem) {
     return TextButton(
       // buttonu5U (1:623)
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Profile()),
+          MaterialPageRoute(builder: (context) => Profile(user: user)),
         );
       },
       style: TextButton.styleFrom(
@@ -503,7 +500,7 @@ class HomePage extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            '${name}',
+            '${user.name}',
             overflow: TextOverflow.ellipsis,
             style: SafeGoogleFont(
               'PT Root UI',

@@ -278,20 +278,6 @@ class _registerPageState extends State<registerPage> {
                                   ),
                                 ),
                                 onPressed: () {
-                                  // if (_formLoginKey.currentState!.validate()) {
-                                  //   var snackBar = SnackBar(
-                                  //       content: Row(
-                                  //     children: [
-                                  //       Icon(
-                                  //         Icons.person,
-                                  //         color: Colors.white,
-                                  //       ),
-                                  //       Text("Hello ${_userNameKey.text}")
-                                  //     ],
-                                  //   ));
-                                  //   ScaffoldMessenger.of(context)
-                                  //       .showSnackBar(snackBar);
-                                  // }
                                   dk();
                                 },
                                 child: Text("Đăng ký",

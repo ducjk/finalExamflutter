@@ -2,14 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:test_project/payment/pay_model.dart';
+import 'package:test_project/payment/pay_provider.dart';
+import 'package:test_project/product/user_model.dart';
 import 'package:test_project/utils.dart';
 
 class Profile extends StatelessWidget {
+  final UserModel user;
+  const Profile({super.key, required this.user});
+
   @override
   Widget build(BuildContext context) {
+    List<PayModel> listPay = [];
+    var payProvider = Provider.of<PayProvider>(context);
+    if (payProvider.list.isEmpty) {
+      payProvider.getList(user.id!);
+    }
+    if (listPay.isEmpty) {
+      listPay = [...payProvider.list];
+    }
     double baseWidth = 375;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
+    print('re-reeender');
+    print(listPay.first.name);
     return Container(
       width: double.infinity,
       child: Container(
@@ -41,65 +58,6 @@ class Profile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        // statusbarA82 (21:2442)
-                        margin: EdgeInsets.fromLTRB(
-                            33.27 * fem, 0 * fem, 14.34 * fem, 15.33 * fem),
-                        width: double.infinity,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              // timefaa (I21:2442;1:70)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 232.23 * fem, 0.41 * fem),
-                              width: 28.5 * fem,
-                              height: 11.09 * fem,
-                              // child: Image.asset(
-                              //   'assets/interfaces/images/time-GgA.png',
-                              //   width: 28.5 * fem,
-                              //   height: 11.09 * fem,
-                              // ),
-                            ),
-                            Container(
-                              // cellularconnectionNE6 (I21:2442;1:79)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0.17 * fem, 5 * fem, 0 * fem),
-                              width: 17 * fem,
-                              height: 10.67 * fem,
-                              // child: Image.asset(
-                              //   'assets/interfaces/images/cellular-connection-vfk.png',
-                              //   width: 17 * fem,
-                              //   height: 10.67 * fem,
-                              // ),
-                            ),
-                            Container(
-                              // wifiRTG (I21:2442;1:75)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 5 * fem, 0.17 * fem),
-                              width: 15.33 * fem,
-                              height: 11 * fem,
-                              // child: Image.asset(
-                              //   'assets/interfaces/images/wifi-hx6.png',
-                              //   width: 15.33 * fem,
-                              //   height: 11 * fem,
-                              // ),
-                            ),
-                            Container(
-                              // batterygtz (I21:2442;1:71)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0.17 * fem, 0 * fem, 0 * fem),
-                              width: 24.33 * fem,
-                              height: 11.33 * fem,
-                              // child: Image.asset(
-                              //   'assets/interfaces/images/battery-cNe.png',
-                              //   width: 24.33 * fem,
-                              //   height: 11.33 * fem,
-                              // ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
                         // topbarnh8 (21:2443)
                         padding: EdgeInsets.fromLTRB(
                             16 * fem, 12 * fem, 16 * fem, 1 * fem),
@@ -118,18 +76,16 @@ class Profile extends StatelessWidget {
                                   margin: EdgeInsets.fromLTRB(
                                       0 * fem, 0 * fem, 0 * fem, 11 * fem),
                                   child: TextButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
                                     style: TextButton.styleFrom(
                                       padding: EdgeInsets.zero,
                                     ),
                                     child: Container(
                                       width: 40 * fem,
                                       height: 40 * fem,
-                                      child: Image.asset(
-                                        'assets/icon/back.png',
-                                        width: 40 * fem,
-                                        height: 40 * fem,
-                                      ),
+                                      child: Icon(Icons.arrow_back_ios),
                                     ),
                                   ),
                                 ),
@@ -149,10 +105,11 @@ class Profile extends StatelessWidget {
                                         margin: EdgeInsets.fromLTRB(
                                             0 * fem, 0 * fem, 0 * fem, 8 * fem),
                                         child: Text(
-                                          '8 (707) 268 48 12',
+                                          user.phone ?? "0xxxxxxxxx",
                                           textAlign: TextAlign.center,
                                           style: SafeGoogleFont(
                                             'PT Root UI',
+                                            decoration: TextDecoration.none,
                                             fontSize: 18 * ffem,
                                             fontWeight: FontWeight.w700,
                                             height: 1 * ffem / fem,
@@ -162,10 +119,11 @@ class Profile extends StatelessWidget {
                                       ),
                                       Text(
                                         // screensubtitleU66 (I21:2443;1:713)
-                                        'Eurasia Cinema7',
+                                        user.name ?? "",
                                         textAlign: TextAlign.center,
                                         style: SafeGoogleFont(
                                           'PT Root UI',
+                                          decoration: TextDecoration.none,
                                           fontSize: 14 * ffem,
                                           fontWeight: FontWeight.w400,
                                           height: 1 * ffem / fem,
@@ -176,7 +134,7 @@ class Profile extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(
-                                  width: 65.5 * fem,
+                                  width: 55.5 * fem,
                                 ),
                                 Container(
                                   // glyphyoY (I21:2443;1:709)
@@ -231,6 +189,7 @@ class Profile extends StatelessWidget {
                             'Saved cards',
                             style: SafeGoogleFont(
                               'PT Root UI',
+                              decoration: TextDecoration.none,
                               fontSize: 16 * ffem,
                               fontWeight: FontWeight.w500,
                               height: 1.2575 * ffem / fem,
@@ -275,9 +234,10 @@ class Profile extends StatelessWidget {
                                     margin: EdgeInsets.fromLTRB(
                                         0 * fem, 0 * fem, 125 * fem, 0 * fem),
                                     child: Text(
-                                      '4716 •••• •••• 5615',
+                                      '${user.visa!.substring(0, 4)}xxx${user.visa!.substring(8)}',
                                       style: SafeGoogleFont(
                                         'PT Root UI',
+                                        decoration: TextDecoration.none,
                                         fontSize: 14 * ffem,
                                         fontWeight: FontWeight.w500,
                                         height: 1.2857142857 * ffem / fem,
@@ -290,9 +250,10 @@ class Profile extends StatelessWidget {
                                     margin: EdgeInsets.fromLTRB(
                                         0 * fem, 0 * fem, 0 * fem, 0 * fem),
                                     child: Text(
-                                      '06/24',
+                                      '',
                                       style: SafeGoogleFont(
                                         'PT Root UI',
+                                        decoration: TextDecoration.none,
                                         fontSize: 14 * ffem,
                                         fontWeight: FontWeight.w400,
                                         height: 1.2857142857 * ffem / fem,
@@ -323,6 +284,7 @@ class Profile extends StatelessWidget {
                                 'Add new card',
                                 style: SafeGoogleFont(
                                   'PT Root UI',
+                                  decoration: TextDecoration.none,
                                   fontSize: 14 * ffem,
                                   fontWeight: FontWeight.w700,
                                   height: 1.2575 * ffem / fem,
@@ -338,6 +300,7 @@ class Profile extends StatelessWidget {
                   Container(
                     // sectionhB8 (21:2608)
                     width: double.infinity,
+                    height: 400 * fem,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -349,6 +312,7 @@ class Profile extends StatelessWidget {
                             'Payments history',
                             style: SafeGoogleFont(
                               'PT Root UI',
+                              decoration: TextDecoration.none,
                               fontSize: 16 * ffem,
                               fontWeight: FontWeight.w500,
                               height: 1.2575 * ffem / fem,
@@ -356,99 +320,119 @@ class Profile extends StatelessWidget {
                             ),
                           ),
                         ),
-                        TextButton(
-                          // payment7Vk (21:2631)
-                          onPressed: () {},
-                          style: TextButton.styleFrom(
-                            padding: EdgeInsets.zero,
-                          ),
-                          child: Container(
-                            padding: EdgeInsets.fromLTRB(
-                                12 * fem, 8 * fem, 16 * fem, 8 * fem),
-                            width: double.infinity,
-                            height: 104 * fem,
-                            decoration: BoxDecoration(
-                              color: Color(0xff1e283d),
-                              borderRadius: BorderRadius.circular(8 * fem),
-                            ),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  // imageMez (I21:2631;21:2612)
-                                  margin: EdgeInsets.fromLTRB(
-                                      0 * fem, 0 * fem, 16 * fem, 0 * fem),
-                                  width: 56 * fem,
-                                  height: 88 * fem,
-                                  child: ClipRRect(
-                                    borderRadius:
-                                        BorderRadius.circular(8 * fem),
-                                    child: Image.asset(
-                                      'assets/interfaces/images/image-Mar.png',
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Column(
+                          children: [
+                            ...listPay.map((e) {
+                              return TextButton(
+                                // payment7Vk (21:2631)
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
                                 ),
-                                Container(
-                                  // wrapdcW (I21:2631;21:2540)
+                                child: Container(
+                                  padding: EdgeInsets.fromLTRB(
+                                      12 * fem, 12 * fem, 16 * fem, 12 * fem),
+                                  width: 380 * fem,
+                                  height: 88 * fem,
                                   margin: EdgeInsets.fromLTRB(
-                                      0 * fem, 12 * fem, 0 * fem, 12 * fem),
-                                  width: 243 * fem,
-                                  height: double.infinity,
+                                      0, 4 * fem, 0, 4 * fem),
                                   decoration: BoxDecoration(
+                                    color: Color(0xff1e283d),
                                     borderRadius:
                                         BorderRadius.circular(8 * fem),
                                   ),
-                                  child: Column(
+                                  child: Row(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                        CrossAxisAlignment.center,
                                     children: [
-                                      Text(
-                                        // titleWwC (I21:2631;21:2541)
-                                        'The Batman',
-                                        style: SafeGoogleFont(
-                                          'PT Root UI',
-                                          fontSize: 16 * ffem,
-                                          fontWeight: FontWeight.w700,
-                                          height: 1.5 * ffem / fem,
-                                          color: Color(0xffffffff),
+                                      Container(
+                                        // imageMez (I21:2631;21:2612)
+                                        margin: EdgeInsets.fromLTRB(0 * fem,
+                                            0 * fem, 10 * fem, 0 * fem),
+                                        width: 56 * fem,
+                                        height: 88 * fem,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8 * fem),
+                                          child: Image.network(
+                                            e.avatar ?? "",
+                                            fit: BoxFit.cover,
+                                            height: 88 * fem,
+                                            width: 56 * fem,
+                                          ),
                                         ),
                                       ),
-                                      SizedBox(
-                                        height: 4 * fem,
-                                      ),
-                                      Text(
-                                        // dateqCn (I21:2631;21:2542)
-                                        '6 April 2022, 14:40',
-                                        style: SafeGoogleFont(
-                                          'PT Root UI',
-                                          fontSize: 14 * ffem,
-                                          fontWeight: FontWeight.w400,
-                                          height: 1.1428571429 * ffem / fem,
-                                          color: Color(0xffffffff),
+                                      Container(
+                                        // wrapdcW (I21:2631;21:2540)
+                                        margin: EdgeInsets.fromLTRB(0 * fem,
+                                            12 * fem, 0 * fem, 12 * fem),
+                                        width: 200 * fem,
+                                        height: double.infinity,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(8 * fem),
                                         ),
-                                      ),
-                                      SizedBox(
-                                        height: 4 * fem,
-                                      ),
-                                      Text(
-                                        // detailvk2 (I21:2631;21:2543)
-                                        'Eurasia Cinema7',
-                                        style: SafeGoogleFont(
-                                          'PT Root UI',
-                                          fontSize: 14 * ffem,
-                                          fontWeight: FontWeight.w400,
-                                          height: 1.1428571429 * ffem / fem,
-                                          color: Color(0xff637393),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              // titleWwC (I21:2631;21:2541)
+                                              e.name ?? "",
+                                              style: SafeGoogleFont(
+                                                'PT Root UI',
+                                                decoration: TextDecoration.none,
+                                                fontSize: 16 * ffem,
+                                                fontWeight: FontWeight.w700,
+                                                height: 1.5 * ffem / fem,
+                                                color: Color(0xffffffff),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 4 * fem,
+                                            ),
+                                            Text(
+                                              // dateqCn (I21:2631;21:2542)
+                                              '${e.date}, ${e.time}',
+                                              style: SafeGoogleFont(
+                                                'PT Root UI',
+                                                decoration: TextDecoration.none,
+                                                fontSize: 14 * ffem,
+                                                fontWeight: FontWeight.w400,
+                                                height:
+                                                    1.1428571429 * ffem / fem,
+                                                color: Color(0xffffffff),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 4 * fem,
+                                            ),
+                                            Text(
+                                              // detailvk2 (I21:2631;21:2543)
+                                              e.place ?? "",
+                                              style: SafeGoogleFont(
+                                                'PT Root UI',
+                                                decoration: TextDecoration.none,
+                                                fontSize: 14 * ffem,
+                                                fontWeight: FontWeight.w400,
+                                                height:
+                                                    1.1428571429 * ffem / fem,
+                                                color: Color(0xff637393),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                        ),
+                              );
+                            }).toList()
+                          ],
+                        )
                       ],
                     ),
                   ),

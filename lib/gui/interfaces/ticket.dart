@@ -3,13 +3,21 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_project/gui/interfaces/home-non-auth.dart';
+import 'package:test_project/premieres/premieres_model.dart';
+import 'package:test_project/product/product_model.dart';
 import 'package:test_project/product/user_model.dart';
 import 'package:test_project/utils.dart';
 
 class Ticket extends StatelessWidget {
+  final PremiereModel premiere;
+  final ProductModel product;
   final UserModel user;
 
-  const Ticket({super.key, required this.user});
+  const Ticket(
+      {super.key,
+      required this.user,
+      required this.premiere,
+      required this.product});
   @override
   Widget build(BuildContext context) {
     double baseWidth = 375;
@@ -101,7 +109,7 @@ class Ticket extends StatelessWidget {
                                         ),
                                         Text(
                                           // screensubtitleWYJ (I12:3515;4:198)
-                                          'Eurasia Cinema7',
+                                          premiere.place ?? "",
                                           textAlign: TextAlign.center,
                                           style: SafeGoogleFont(
                                             'PT Root UI',
@@ -121,20 +129,27 @@ class Ticket extends StatelessWidget {
                                         0 * fem, 0 * fem, 0 * fem, 12 * fem),
                                     child: TextButton(
                                       onPressed: () {
-<<<<<<< HEAD
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) =>
-                                                  HomePage(user: user)),
+                                            builder: (context) => MaterialApp(
+                                              title: 'Flutter',
+                                              debugShowCheckedModeBanner: false,
+                                              scrollBehavior:
+                                                  MyCustomScrollBehavior(),
+                                              theme: ThemeData(
+                                                primarySwatch: Colors.blue,
+                                              ),
+                                              home: Scaffold(
+                                                body: SingleChildScrollView(
+                                                  child: HomePage(
+                                                    user: user,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                         );
-=======
-                                        // Navigator.push(
-                                        //   context,
-                                        //   MaterialPageRoute(
-                                        //       builder: (context) => HomePage(user:)),
-                                        // );
->>>>>>> faf9719547d0ac11b67dd8db9ce21238cb7ac9ce
                                       },
                                       style: TextButton.styleFrom(
                                         padding: EdgeInsets.zero,
@@ -435,7 +450,7 @@ class Ticket extends StatelessWidget {
                                 margin: EdgeInsets.fromLTRB(
                                     0 * fem, 0 * fem, 0 * fem, 16 * fem),
                                 child: Text(
-                                  'The Batman',
+                                  product.name ?? "",
                                   style: SafeGoogleFont(
                                     'PT Root UI',
                                     decoration: TextDecoration.none,
@@ -492,7 +507,7 @@ class Ticket extends StatelessWidget {
                                                       0 * fem,
                                                       4 * fem),
                                                   child: Text(
-                                                    'Eurasia Cinema7',
+                                                    premiere.place ?? "",
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
                                                       decoration:
@@ -509,7 +524,7 @@ class Ticket extends StatelessWidget {
                                                 ),
                                                 Text(
                                                   // 962 (12:3450)
-                                                  'ул. Петрова, д.24, ТЦ "Евразия"',
+                                                  premiere.country ?? "",
                                                   style: SafeGoogleFont(
                                                     'PT Root UI',
                                                     decoration:
@@ -571,7 +586,7 @@ class Ticket extends StatelessWidget {
                                                 ),
                                                 Text(
                                                   // april20221440xxa (12:3453)
-                                                  '6 April 2022, 14:40',
+                                                  '${premiere.date}, ${premiere.time}',
                                                   style: SafeGoogleFont(
                                                     'PT Root UI',
                                                     decoration:
@@ -607,7 +622,7 @@ class Ticket extends StatelessWidget {
                                                       66 * fem,
                                                       0 * fem),
                                                   child: Text(
-                                                    'Hall',
+                                                    '',
                                                     style: SafeGoogleFont(
                                                       'PT Root UI',
                                                       decoration:
@@ -624,7 +639,7 @@ class Ticket extends StatelessWidget {
                                                 ),
                                                 Text(
                                                   // thtUr (12:3456)
-                                                  '6th',
+                                                  '',
                                                   style: SafeGoogleFont(
                                                     'PT Root UI',
                                                     decoration:
@@ -677,7 +692,7 @@ class Ticket extends StatelessWidget {
                                                 ),
                                                 Text(
                                                   // row788Gi (12:3459)
-                                                  '7 row (7, 8)',
+                                                  '4 row (3, 3)',
                                                   style: SafeGoogleFont(
                                                     'PT Root UI',
                                                     decoration:
@@ -730,7 +745,7 @@ class Ticket extends StatelessWidget {
                                                 ),
                                                 Text(
                                                   // paidJ4i (12:3561)
-                                                  '3200 ₸ (paid)',
+                                                  '90000',
                                                   style: SafeGoogleFont(
                                                     'PT Root UI',
                                                     decoration:

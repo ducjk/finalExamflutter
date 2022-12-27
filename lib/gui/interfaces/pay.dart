@@ -9,6 +9,7 @@ import 'package:test_project/premieres/premieres_model.dart';
 import 'package:test_project/product/product_model.dart';
 import 'package:test_project/product/user_model.dart';
 import 'package:test_project/utils.dart';
+import 'package:http/http.dart' as http;
 
 class Pay extends StatelessWidget {
   final PremiereModel premiere;
@@ -22,6 +23,48 @@ class Pay extends StatelessWidget {
       required this.user});
   @override
   Widget build(BuildContext context) {
+    Future<void> pay() async {
+      var res = await http.post(Uri.parse("http://localhost:3000/api/pays"),
+          body: ({
+            "productid": product.id.toString(),
+            "name": product.name,
+            "userid": user.id.toString(),
+            "phone": user.phone,
+            "avatar": product.avatar,
+            "country": premiere.country,
+            "time": premiere.time,
+            "place": premiere.place,
+            "date": premiere.date,
+            "ticket": "2",
+            "seats": "D3,D4"
+          }));
+
+      if (res.statusCode != 200) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => Ticket(
+                    product: product,
+                    premiere: premiere,
+                    user: user,
+                  )),
+        );
+      } else {
+        var snackBar = SnackBar(
+            content: Row(
+          children: [
+            Icon(
+              Icons.person,
+              color: Colors.white,
+            ),
+            Text("Ban cần chọn số ghế ngồi"),
+          ],
+        ));
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        Navigator.pop(context);
+      }
+    }
+
     double baseWidth = 375;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -892,13 +935,7 @@ class Pay extends StatelessWidget {
                           TextButton(
                             // buttonhVL (I21:3032;21:2850)
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Ticket(
-                                          user: user,
-                                        )),
-                              );
+                              pay();
                             },
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:test_project/payment/pay_provider.dart';
 import 'package:test_project/product/user_model.dart';
 import 'package:test_project/product/user_provider.dart';
 import 'package:test_project/premieres/premieres_provider.dart';
@@ -16,7 +17,8 @@ class test_project extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ProductProvider()),
         ChangeNotifierProvider(create: (_) => PremiereProvider()),
-        ChangeNotifierProvider(create: (_) => UserProvider())
+        ChangeNotifierProvider(create: (_) => UserProvider()),
+        ChangeNotifierProvider(create: (_) => PayProvider())
       ],
       child: MaterialApp(
         title: 'Flutter',

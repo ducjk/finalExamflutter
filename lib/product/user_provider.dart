@@ -19,7 +19,12 @@ class UserProvider extends ChangeNotifier {
     var jsonObject = jsonDecode(jsonString) as List;
     list_users = jsonObject.map((e) {
       return UserModel(
-          id: e['id'], name: e['name'], user: e["user"], pass: e["pass"]);
+          id: e['id'],
+          name: e['name'],
+          user: e["user"],
+          pass: e["pass"],
+          phone: e['phone'],
+          visa: e['visa']);
     }).toList();
 
     notifyListeners();
