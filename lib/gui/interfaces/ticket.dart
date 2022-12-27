@@ -121,20 +121,12 @@ class Ticket extends StatelessWidget {
                                         0 * fem, 0 * fem, 0 * fem, 12 * fem),
                                     child: TextButton(
                                       onPressed: () {
-<<<<<<< HEAD
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
                                                   HomePage(user: user)),
                                         );
-=======
-                                        // Navigator.push(
-                                        //   context,
-                                        //   MaterialPageRoute(
-                                        //       builder: (context) => HomePage(user:)),
-                                        // );
->>>>>>> faf9719547d0ac11b67dd8db9ce21238cb7ac9ce
                                       },
                                       style: TextButton.styleFrom(
                                         padding: EdgeInsets.zero,

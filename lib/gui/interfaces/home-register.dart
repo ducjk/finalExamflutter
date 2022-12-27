@@ -29,18 +29,20 @@ class _registerPageState extends State<registerPage> {
 
   var _passwordKey = TextEditingController();
   var _NamdedKey = TextEditingController();
-
+  var _phoneKey = TextEditingController();
   @override
   Widget build(BuildContext context) {
     Future<void> dk() async {
       if (_userNameKey.text.isNotEmpty &&
           _passwordKey.text.isNotEmpty &&
-          _NamdedKey.text.isNotEmpty) {
+          _NamdedKey.text.isNotEmpty &&
+          _phoneKey.text.isNotEmpty) {
         var res = await http.post(Uri.parse("http://localhost:3000/api/users"),
             body: ({
               'user': _userNameKey.text,
               'pass': _passwordKey.text,
-              'name': _NamdedKey.text
+              'name': _NamdedKey.text,
+              'phone': _phoneKey.text
             }));
 
         if (res.statusCode != 200) {
@@ -171,6 +173,7 @@ class _registerPageState extends State<registerPage> {
                         height: 6,
                       ),
                       TextFormField(
+                        obscureText: true,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "Trường này không được để trống";
@@ -258,6 +261,55 @@ class _registerPageState extends State<registerPage> {
                       SizedBox(
                         height: 20,
                       ),
+                      Text(
+                        "Số điện thoại",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                      SizedBox(
+                        height: 6,
+                      ),
+                      TextFormField(
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Trường này không được để trống";
+                          }
+                          if (value.length < 6)
+                            return "Trường này tối thiếu 6 kí tự";
+                          return null;
+                        },
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Color.fromARGB(255, 221, 120, 57),
+                        ),
+                        decoration: InputDecoration(
+                          hintText: "number phone",
+                          hintStyle:
+                              TextStyle(color: Color.fromRGBO(99, 115, 148, 1)),
+                          labelStyle: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Color.fromARGB(255, 221, 120, 57),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.grey, width: 2.0),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 221, 120, 57),
+                                width: 2.0),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                        controller: _phoneKey,
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -278,20 +330,6 @@ class _registerPageState extends State<registerPage> {
                                   ),
                                 ),
                                 onPressed: () {
-                                  // if (_formLoginKey.currentState!.validate()) {
-                                  //   var snackBar = SnackBar(
-                                  //       content: Row(
-                                  //     children: [
-                                  //       Icon(
-                                  //         Icons.person,
-                                  //         color: Colors.white,
-                                  //       ),
-                                  //       Text("Hello ${_userNameKey.text}")
-                                  //     ],
-                                  //   ));
-                                  //   ScaffoldMessenger.of(context)
-                                  //       .showSnackBar(snackBar);
-                                  // }
                                   dk();
                                 },
                                 child: Text("Đăng ký",
